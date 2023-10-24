@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <div className="bg-primary z-[-1] min-h-screen w-full absolute" />
+      <div className="bg-primary z-[-1] min-h-[100svh] w-full absolute" />
       <Image
         className="opacity-30 absolute z-[-1]"
         objectFit="cover"
@@ -18,9 +18,9 @@ export default function Home() {
         alt="starry night"
         src="/images/starry-sky.jpg"
       />
-      <main className="min-h-screen text-white flex justify-center items-start overflow-hidden">
-        <div className="max-w-screen-2xl sm:mx-32 mx-8 flex flex-col grow min-h-screen justify-start">
-          <div className="2xl:pt-40 pt-32 flex flex-col lg:justify-between xl:flex-row xl:items-center sm:gap-y-24 gap-y-16">
+      <main className="min-h-[100svh] text-white flex justify-center items-start overflow-hidden">
+        <div className="max-w-screen-2xl sm:mx-32 mx-8 flex flex-col grow min-h-[100svh] justify-start">
+          <div className="2xl:pt-40 md:pt-32 pt-24 flex flex-col lg:justify-between xl:flex-row xl:items-center sm:gap-y-24 gap-y-16">
             <div>
               <p className="sm:text-2xl text-xl font-bold">Hi, I&apos;m</p>
               <p className="sm:text-9xl text-7xl font-bold">
