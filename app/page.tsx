@@ -33,17 +33,19 @@ export default function Home() {
           </div>
 
           <div className="w-full flex justify-between grow items-end pb-8 text-xl">
-            <CustomLink href="/Daniel_Atkinson_Resume.pdf">Resume</CustomLink>
-            <CustomLink href="mailto:daniel@danielatkinson.dev">
-              daniel@danielatkinson.dev
-            </CustomLink>
-            <div className="flex gap-x-4">
-              <Link href="https://github.com/Datki11">
-                <AiFillGithub className size={32} />
-              </Link>
-              <Link href="https://www.linkedin.com/in/daniel-atkinson-a4650526a/">
-                <AiFillLinkedin size={32} />
-              </Link>
+            <div className="w-full flex flex-col md:flex-row justify-between gap-y-8">
+              <CustomLink href="/Daniel_Atkinson_Resume.pdf">Resume</CustomLink>
+              <CustomLink href="mailto:daniel@danielatkinson.dev">
+                daniel@danielatkinson.dev
+              </CustomLink>
+              <div className="flex gap-x-4">
+                <Link href="https://github.com/Datki11">
+                  <AiFillGithub className size={32} />
+                </Link>
+                <Link href="https://www.linkedin.com/in/daniel-atkinson-a4650526a/">
+                  <AiFillLinkedin size={32} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
