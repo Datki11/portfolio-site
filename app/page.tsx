@@ -1,31 +1,53 @@
 import Image from "next/image";
+import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import "@fontsource/roboto"; // Defaults to weight 400
 import "@fontsource/roboto/400.css"; // Specify weight
 import "@fontsource/roboto/400-italic.css"; // Specify weight and style
+import CustomLink from "./CustomLink";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen text-white flex justify-center items-start">
-      <div className="bg-primary min-h-screen w-full absolute" />
+    <>
+      <div className="bg-primary z-[-1] min-h-screen w-full absolute" />
       <Image
-        className="opacity-30 absolute"
+        className="opacity-30 absolute z-[-1]"
         objectFit="cover"
         fill
         priority
         alt="starry night"
         src="/images/starry-sky.jpg"
       />
-      <div className="sm:mx-32 mx-8 max-w-screen-2xl relative z-1 2xl: pt-40 pt-32 flex flex-col lg:justify-between xl:flex-row xl:items-center grow sm:gap-y-24 gap-y-16">
-        <div>
-          <p className="sm:text-2xl text-xl font-bold">Hi, I&apos;m</p>
-          <p className="sm:text-9xl text-7xl font-bold">
-            Daniel
-            <br />
-            Atkinson
-          </p>
+      <main className="min-h-screen text-white flex justify-center items-start overflow-hidden">
+        <div className="max-w-screen-2xl sm:mx-32 mx-8 flex flex-col grow min-h-screen justify-start">
+          <div className="2xl:pt-40 pt-32 flex flex-col lg:justify-between xl:flex-row xl:items-center sm:gap-y-24 gap-y-16">
+            <div>
+              <p className="sm:text-2xl text-xl font-bold">Hi, I&apos;m</p>
+              <p className="sm:text-9xl text-7xl font-bold">
+                Daniel
+                <br />
+                Atkinson
+              </p>
+            </div>
+            <p className="sm:text-5xl text-3xl font-bold">Software Engineer</p>
+          </div>
+
+          <div className="w-full flex justify-between grow items-end pb-8 text-xl">
+            <CustomLink href="/Daniel_Atkinson_Resume.pdf">Resume</CustomLink>
+            <CustomLink href="mailto:daniel@danielatkinson.dev">
+              daniel@danielatkinson.dev
+            </CustomLink>
+            <div className="flex gap-x-4">
+              <Link href="https://github.com/Datki11">
+                <AiFillGithub className size={32} />
+              </Link>
+              <Link href="https://www.linkedin.com/in/daniel-atkinson-a4650526a/">
+                <AiFillLinkedin size={32} />
+              </Link>
+            </div>
+          </div>
         </div>
-        <p className="sm:text-5xl text-3xl font-bold">Software Engineer</p>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
