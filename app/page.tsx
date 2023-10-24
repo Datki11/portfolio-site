@@ -11,10 +11,11 @@ export default function Home() {
         className="opacity-30 absolute"
         objectFit="cover"
         fill
+        priority
         alt="starry night"
         src="/images/starry-sky.jpg"
       />
-      <div className="sm:mx-32 mx-8 max-w-screen-2xl relative z-1 pt-32 flex flex-col lg:justify-between xl:flex-row xl:items-center grow sm:gap-y-24 gap-y-16">
+      <div className="sm:mx-32 mx-8 max-w-screen-2xl relative z-1 2xl: pt-40 pt-32 flex flex-col lg:justify-between xl:flex-row xl:items-center grow sm:gap-y-24 gap-y-16">
         <div>
           <p className="sm:text-2xl text-xl font-bold">Hi, I&apos;m</p>
           <p className="sm:text-9xl text-7xl font-bold">
