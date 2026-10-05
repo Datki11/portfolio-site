@@ -77,10 +77,11 @@ const areas = [
 
 export default function StackMap() {
   const [active, setActive] = useState(0);
+  const [hovered, setHovered] = useState<number | null>(null);
   const area = areas[active];
   return (
     <div className="stack-map">
-      <Molecule active={active} onSelect={setActive} />
+      <Molecule active={active} hovered={hovered} onSelect={setActive} />
       <div className="stack-content">
         <div
           className="stack-tabs"
@@ -96,6 +97,11 @@ export default function StackMap() {
               aria-selected={active === index}
               aria-controls="stack-panel"
               tabIndex={active === index ? 0 : -1}
+              onPointerEnter={(event) => {
+                if (event.pointerType !== "touch") setHovered(index);
+              }}
+              onPointerLeave={() => setHovered(null)}
+              onPointerCancel={() => setHovered(null)}
               onClick={() => setActive(index)}
               onKeyDown={(e) => {
                 if (

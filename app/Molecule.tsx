@@ -7,9 +7,11 @@ const subjects = [
 ];
 export default function Molecule({
   active,
+  hovered,
   onSelect,
 }: {
   active: number;
+  hovered: number | null;
   onSelect: (index: number) => void;
 }) {
   return (
@@ -75,6 +77,7 @@ export default function Molecule({
             key={s.label}
             className="molecule-node"
             data-molecule-node={i}
+            data-hovered={hovered === i || undefined}
             data-x={s.x}
             data-y={s.y}
             transform={`translate(${s.x} ${s.y})`}
