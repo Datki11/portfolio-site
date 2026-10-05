@@ -42,3 +42,11 @@ Experience and impact figures were adapted from the supplied 2026 résumé and N
 Next.js 16, React 19, and Tailwind CSS 4 are upgraded to their current stable releases. TypeScript stays on 6.x and ESLint on 9.x because the current Next.js lint plugins do not support TypeScript 7 and have ESLint peer dependencies capped at 9. Node types match the Node 24 runtime.
 
 The current audit reports five linked high-severity findings through `braces` in the development-only Next.js ESLint dependency tree. There is no patched `braces` release available; the suggested automatic fix downgrades Next's lint configuration to version 14 and is not applied. `npm audit --omit=dev` checks the production dependency tree separately.
+
+## Interactive depth
+
+GSAP drives pointer-based parallax, portrait and card tilt, reactive stars, and floating labels. `app/MotionScene.tsx` owns the interactions and cleanup; `app/StarField.tsx` supplies deterministic star positions. Cards have independent artwork movement and pointer-following highlights. Skill tags and constellation nodes also respond to hover.
+
+Motion runs only for fine pointers with hover support and when the visitor has not requested reduced motion. The floating motion control disables the enhanced interactions. All content stays visible and navigation remains usable without JavaScript. Effects return to rest on pointer exit and window blur; media-query changes and unmounts clean up the listeners and GSAP transforms.
+
+The approved pre-motion design is preserved on `codex/cosmic-portfolio-checkpoint` at `5d0eabb`. The motion iteration lives on `codex/immersive-3d-motion`.

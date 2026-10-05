@@ -8,6 +8,8 @@ import {
 } from "react-icons/fi";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import StackMap from "./StackMap";
+import MotionScene from "./MotionScene";
+import StarField from "./StarField";
 
 // Set to null to keep the portrait frame with a monogram placeholder.
 const headshotSrc: string | null = "/images/headshot.webp";
@@ -31,7 +33,7 @@ function Spark({ className = "" }: { className?: string }) {
 
 export default function Home() {
   return (
-    <>
+    <MotionScene>
       <a className="skip-link" href="#main">
         Skip to content
       </a>
@@ -55,6 +57,8 @@ export default function Home() {
       <main id="main">
         <div className="sky-section">
           <div className="sky-texture" aria-hidden="true" />
+          <div className="cursor-nebula" aria-hidden="true" />
+          <StarField />
 
           <section className="hero wrap" aria-labelledby="hero-title">
             <div className="hero-copy">
@@ -590,6 +594,6 @@ export default function Home() {
           </a>
         </div>
       </footer>
-    </>
+    </MotionScene>
   );
 }

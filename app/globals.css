@@ -1506,3 +1506,247 @@ h3 {
 .header-shell {
   background: linear-gradient(115deg, #28173e, #20132f);
 }
+
+/* Depth is progressive enhancement: every surface works without JavaScript. */
+.motion-site {
+  overflow: clip;
+}
+.sky-section {
+  perspective: 1400px;
+}
+.hero {
+  z-index: 1;
+}
+.cursor-nebula {
+  position: absolute;
+  width: 680px;
+  height: 680px;
+  right: -60px;
+  top: -90px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    #8424ff2e,
+    #72e5bf09 40%,
+    transparent 68%
+  );
+  filter: blur(12px);
+}
+.depth-starfield {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.depth-star {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: #e1d2ff;
+  box-shadow: 0 0 9px #c6a9ff88;
+}
+.depth-star:nth-child(3n) {
+  background: var(--mint);
+  box-shadow: 0 0 13px #72e5bf88;
+}
+.depth-star-cross {
+  border-radius: 0;
+  clip-path: polygon(
+    50% 0,
+    61% 38%,
+    100% 50%,
+    61% 62%,
+    50% 100%,
+    39% 62%,
+    0 50%,
+    39% 38%
+  );
+}
+.portrait-composition {
+  perspective: 1000px;
+  transform-style: flat;
+}
+.portrait-frame {
+  box-shadow:
+    8px 12px 0 #60328222,
+    15px 24px 0 #60328212,
+    25px 40px 80px #06040d99,
+    0 0 85px #8424ff30;
+}
+.orbit-label {
+  box-shadow:
+    0 5px 0 #130c20,
+    0 15px 32px #09051377,
+    inset 0 1px 0 #d2aeff24;
+  border-color: #b58ce67a;
+}
+.hero-spark,
+.section-spark,
+.ai-spark,
+.contact-spark,
+.planet-spark {
+  filter: drop-shadow(0 0 12px #72e5bf22);
+  transform-origin: center;
+}
+.hero-spark {
+  animation: none;
+}
+.work-grid {
+  perspective: 1400px;
+}
+.work-card {
+  position: relative;
+  box-shadow:
+    0 7px 0 #0e0a16,
+    0 20px 45px #08050e44;
+}
+.work-card::after,
+.ai-note::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    circle at var(--light-x, 50%) var(--light-y, 50%),
+    #c6a9ff14,
+    transparent 55%
+  );
+  transition: opacity 0.35s;
+}
+.work-card:hover::after,
+.ai-note:hover::after {
+  opacity: 1;
+}
+.ai-note {
+  position: relative;
+  box-shadow:
+    0 6px 0 #100b19,
+    0 15px 30px #08050e33;
+}
+.stack-visual {
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #8424ff12, transparent 68%);
+}
+.impact-strip > div {
+  border-radius: 8px;
+}
+.timeline-item {
+  border-radius: 10px;
+}
+.tags span {
+  display: inline-block;
+  box-shadow: 0 3px 0 #08050e33;
+}
+.tags span:hover {
+  color: #e9dcff;
+  border-color: #bb91f894;
+  background: #a068ed17;
+}
+.button-mint {
+  box-shadow:
+    0 5px 0 #247f68,
+    0 9px 26px #72e5bf1a;
+}
+.button-mint:active {
+  box-shadow: 0 2px 0 #247f68;
+}
+.contact-planet {
+  filter: drop-shadow(18px 28px 25px #12092388);
+}
+[data-motion="active"] .portrait-frame,
+[data-motion="active"] .button-mint {
+  transition-property: background, color, border-color;
+}
+[data-motion="active"] .portrait-composition:hover .portrait-frame {
+  transform: rotate(4deg);
+}
+[data-motion="active"] .button-mint:hover {
+  transform: none;
+}
+.motion-toggle {
+  position: fixed;
+  z-index: 40;
+  bottom: 18px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #241a35ed;
+  backdrop-filter: blur(12px);
+  border: 1px solid #c6a9ff4a;
+  border-radius: 30px;
+  padding: 10px 14px;
+  font:
+    10px "Roboto",
+    sans-serif;
+  color: #d9c9ef;
+  box-shadow: 0 5px 20px #08050e55;
+  cursor: pointer;
+}
+.motion-toggle svg {
+  color: var(--mint);
+}
+.motion-toggle:hover {
+  border-color: var(--mint);
+}
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .motion-toggle {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portrait-composition:hover .portrait-frame {
+    transform: rotate(4deg);
+  }
+  .button-mint:hover,
+  .hero-socials a:hover {
+    transform: none;
+  }
+}
+.hero h1 {
+  text-shadow:
+    1px 2px 0 #432565,
+    3px 6px 0 #1a102a,
+    0 14px 45px #0b051b66;
+}
+.tags span {
+  transition:
+    transform 0.3s,
+    color 0.3s,
+    background 0.3s,
+    border-color 0.3s;
+}
+[data-motion="active"] .tags span:hover {
+  transform: translateY(-4px) scale(1.08);
+}
+[data-motion="active"] .map-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.35s;
+}
+[data-motion="active"] .map-node:hover {
+  transform: scale(1.15);
+}
+[data-motion-disabled] .portrait-composition:hover .portrait-frame {
+  transform: rotate(4deg);
+}
+[data-motion-disabled] .button-mint:hover,
+[data-motion-disabled] .hero-socials a:hover {
+  transform: none;
+}
+[data-motion-disabled] .portrait-frame {
+  transition: none;
+}
+
+.portrait-orbits {
+  z-index: 0;
+}
+.portrait-frame {
+  z-index: 1;
+}
+.orbit-label,
+.hero-spark {
+  z-index: 3;
+}
