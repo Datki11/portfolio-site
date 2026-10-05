@@ -3,13 +3,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { FiPause, FiPlay } from "react-icons/fi";
-import {
-  nodeAngles,
-  orbitPath,
-  orbitPoint,
-  project,
-  restingView,
-} from "./lib/orbits";
 
 /** All motion is optional; content and controls remain server rendered. */
 export default function MotionScene({ children }: { children: ReactNode }) {
@@ -75,7 +68,7 @@ export default function MotionScene({ children }: { children: ReactNode }) {
           ...root.querySelectorAll<HTMLElement>(".depth-star"),
         ].map((star, index) => ({
           element: star,
-          depth: 5 + (index % 4) * 7,
+          depth: [18, 65, 135, 235][index % 4],
           x: quick(star, "x", 0.9),
           y: quick(star, "y", 0.9),
           scale: quick(star, "scale", 0.35),
@@ -145,222 +138,318 @@ export default function MotionScene({ children }: { children: ReactNode }) {
             const distance = Math.hypot(event.clientX - sx, event.clientY - sy);
             const proximity = Math.max(0, 1 - distance / 150);
             star.x(x * star.depth);
-            star.y(y * star.depth);
+            star.y(y * star.depth * 0.8);
             star.scale(1 + proximity * 2.7);
           });
         }) as EventListener);
         listen(hero, "pointerleave", resetHero);
         listen(window, "blur", resetHero);
 
-        // Project copy and controls stay fixed; only the illustration is animated.
+        // Dedicated visual sequences live inside the artwork, never on the reading surface.
         root.querySelectorAll<HTMLElement>(".work-card").forEach((card) => {
-          const art = card.querySelector<SVGSVGElement>(".work-art svg")!;
-          const x = quick(art, "x"),
-            y = quick(art, "y"),
-            scale = quick(art, "scale");
-          const details = [...art.querySelectorAll("circle")];
-          const pulses = details.map((circle, index) =>
-            gsap.to(circle, {
-              scale: 1.3,
-              transformOrigin: "50% 50%",
-              duration: 1.1 + index * 0.12,
+          const art = card.querySelector<HTMLElement>(".work-art")!;
+          const main = art.querySelector("svg")!;
+          const x = quick(main, "x"),
+            y = quick(main, "y");
+          const scan = art.querySelector(".art-scan")!;
+          const sweep = gsap.fromTo(
+            scan,
+            { xPercent: -140 },
+            {
+              xPercent: 260,
+              duration: 2.2,
               repeat: -1,
-              yoyo: true,
               paused: true,
-              ease: "sine.inOut",
-            }),
+              ease: "power1.inOut",
+            },
           );
-          const lines = art.querySelectorAll("path");
-          const flow = gsap.to(lines, {
-            strokeDashoffset: -60,
-            duration: 3,
-            repeat: -1,
-            paused: true,
-            ease: "none",
-          });
+          const loops: gsap.core.Tween[] = [sweep];
+          const gate = art.querySelector(".portal-gate");
+          if (gate) {
+            loops.push(
+              gsap.to(gate, {
+                rotation: 180,
+                svgOrigin: "365 95",
+                duration: 5,
+                repeat: -1,
+                paused: true,
+                ease: "none",
+              }),
+            );
+            const meteor = art.querySelector(".shooting-star")!;
+            loops.push(
+              gsap.fromTo(
+                meteor,
+                { x: -110, y: 100, opacity: 0 },
+                {
+                  x: 420,
+                  y: -70,
+                  opacity: 1,
+                  duration: 1.5,
+                  repeat: -1,
+                  repeatDelay: 0.7,
+                  paused: true,
+                  ease: "power2.in",
+                },
+              ),
+            );
+          }
+          art
+            .querySelectorAll<SVGPathElement>(".terrain-trace,.signal-trace")
+            .forEach((path) => {
+              const length = path.getTotalLength();
+              gsap.set(path, {
+                strokeDasharray: `${length * 0.32} ${length}`,
+                strokeDashoffset: length,
+              });
+              loops.push(
+                gsap.to(path, {
+                  strokeDashoffset: -length,
+                  duration: 2,
+                  repeat: -1,
+                  paused: true,
+                  ease: "power1.inOut",
+                }),
+              );
+            });
+          const bars = art.querySelectorAll(".signal-bars i");
+          if (bars.length)
+            loops.push(
+              gsap.to(bars, {
+                scaleY: (i) => [0.28, 1.5, 0.6, 1.25][i % 4],
+                transformOrigin: "bottom",
+                duration: 0.7,
+                stagger: { each: 0.06, repeat: -1, yoyo: true },
+                paused: true,
+                ease: "sine.inOut",
+              }),
+            );
+          const ping = art.querySelector(".signal-ping");
+          if (ping)
+            loops.push(
+              gsap.fromTo(
+                ping,
+                { scale: 0.4, opacity: 1 },
+                {
+                  scale: 5,
+                  opacity: 0,
+                  svgOrigin: "391 102",
+                  duration: 1.5,
+                  repeat: -1,
+                  paused: true,
+                  ease: "power2.out",
+                },
+              ),
+            );
           const enter = () => {
-            scale(1.045);
-            pulses.forEach((t) => t.play());
-            flow.play();
+            art.dataset.playing = "true";
+            loops.forEach((loop) => loop.play());
           };
           const leave = () => {
+            delete art.dataset.playing;
             x(0);
             y(0);
-            scale(1);
-            pulses.forEach((t) => t.pause(0));
-            flow.pause(0);
+            loops.forEach((loop) => loop.pause());
           };
           listen(card, "pointerenter", enter);
-          listen(card, "pointermove", ((event: PointerEvent) => {
-            const bounds = card.getBoundingClientRect();
-            x(((event.clientX - bounds.left) / bounds.width - 0.5) * 22);
-            y(((event.clientY - bounds.top) / bounds.height - 0.5) * 14);
-          }) as EventListener);
           listen(card, "pointerleave", leave);
           listen(window, "blur", leave);
+          listen(card, "focusin", enter);
+          listen(card, "focusout", ((event: FocusEvent) => {
+            if (!card.contains(event.relatedTarget as Node)) leave();
+          }) as EventListener);
+          listen(card, "pointermove", ((event: PointerEvent) => {
+            const b = card.getBoundingClientRect();
+            x(((event.clientX - b.left) / b.width - 0.5) * 35);
+            y(((event.clientY - b.top) / b.height - 0.5) * 22);
+          }) as EventListener);
+          cleanups.push(() => delete art.dataset.playing);
         });
 
-        // Project 3D orbital coordinates into SVG so near moons grow and far ones recede.
-        root
-          .querySelectorAll<HTMLElement>("[data-orbital-scene]")
-          .forEach((scene) => {
-            const view = { ...restingView };
-            const rings = [
-              ...scene.querySelectorAll<SVGPathElement>("[data-orbit]"),
-            ];
-            const nodes = [
-              ...scene.querySelectorAll<SVGGElement>("[data-orbit-node]"),
-            ];
-            const links = [
-              ...scene.querySelectorAll<SVGPathElement>("[data-orbit-link]"),
-            ];
-            const dust = [
-              ...scene.querySelectorAll<SVGCircleElement>("[data-orbit-dust]"),
-            ];
-            // Restore attributes as well as tween state when motion is disabled.
-            const attributes = [...rings, ...nodes, ...links, ...dust].map(
-              (el) => ({
-                el,
-                values: [...el.attributes]
-                  .filter((a) =>
-                    ["d", "transform", "opacity", "cx", "cy", "r"].includes(
-                      a.name,
-                    ),
-                  )
-                  .map((a) => [a.name, a.value]),
-              }),
+        const molecule = root.querySelector<HTMLElement>(".molecule-visual")!;
+        const nodes = [
+          ...molecule.querySelectorAll<SVGGElement>("[data-molecule-node]"),
+        ];
+        const links = [
+          ...molecule.querySelectorAll<SVGPathElement>("[data-molecule-link]"),
+        ];
+        const moleculeState = { x: 0, y: 0, open: 0 };
+        const originalNodes = nodes.map((node) =>
+          node.getAttribute("transform")!,
+        );
+        const originalLinks = links.map((link) => link.getAttribute("d")!);
+        const drawMolecule = () => {
+          nodes.forEach((node, i) => {
+            const bx = Number(node.dataset.x),
+              by = Number(node.dataset.y);
+            const depth = [70, -45, 110][i];
+            const nx =
+              bx +
+              (bx - 220) * moleculeState.open * 0.14 +
+              moleculeState.x * depth;
+            const ny =
+              by +
+              (by - 180) * moleculeState.open * 0.13 +
+              moleculeState.y * depth * 0.6;
+            const scale =
+              1 +
+              moleculeState.open * 0.04 +
+              moleculeState.x * [0.1, -0.12, 0.16][i];
+            node.setAttribute(
+              "transform",
+              `translate(${nx} ${ny}) scale(${scale})`,
             );
-            const draw = () => {
-              rings.forEach((ring, i) =>
-                ring.setAttribute("d", orbitPath(i, view)),
-              );
-              nodes.forEach((node, i) => {
-                const point = project(orbitPoint(nodeAngles[i], i), view);
-                node.setAttribute(
-                  "transform",
-                  `translate(${point.x} ${point.y}) scale(${point.scale})`,
-                );
-                node.setAttribute(
-                  "opacity",
-                  String(0.55 + Math.min(1, point.scale) * 0.45),
-                );
-                links[i].setAttribute("d", `M220 190L${point.x} ${point.y}`);
-              });
-              dust.forEach((dot, i) => {
-                const point = project(orbitPoint(i * 0.73, i % 3), view);
-                dot.setAttribute("cx", String(point.x));
-                dot.setAttribute("cy", String(point.y));
-                dot.setAttribute("r", String(2 * point.scale));
-              });
-            };
-            const pitch = gsap.quickTo(view, "pitch", {
-              duration: 0.85,
-              ease: "power3.out",
-              onUpdate: draw,
-            });
-            const yaw = gsap.quickTo(view, "yaw", {
-              duration: 0.85,
-              ease: "power3.out",
-              onUpdate: draw,
-            });
-            const spread = gsap.quickTo(view, "spread", {
-              duration: 0.85,
-              ease: "power3.out",
-              onUpdate: draw,
-            });
-            const enter = () => spread(1.16);
-            const leave = () => {
-              pitch(restingView.pitch);
-              yaw(restingView.yaw);
-              spread(1);
-            };
-            listen(scene, "pointerenter", enter);
-            listen(scene, "pointermove", ((event: PointerEvent) => {
-              const b = scene.getBoundingClientRect();
-              yaw(
-                restingView.yaw +
-                  ((event.clientX - b.left) / b.width - 0.5) * 2.4,
-              );
-              pitch(
-                restingView.pitch -
-                  ((event.clientY - b.top) / b.height - 0.5) * 1.7,
-              );
-            }) as EventListener);
-            listen(scene, "pointerleave", leave);
-            listen(scene, "focus", enter);
-            listen(scene, "blur", leave);
-            listen(window, "blur", leave);
-            listen(scene, "keydown", ((event: KeyboardEvent) => {
-              if (
-                ![
-                  "ArrowLeft",
-                  "ArrowRight",
-                  "ArrowUp",
-                  "ArrowDown",
-                  "Enter",
-                  "Escape",
-                ].includes(event.key)
-              )
-                return;
-              event.preventDefault();
-              if (event.key === "Escape") leave();
-              else if (event.key === "Enter")
-                spread(view.spread > 1.08 ? 1 : 1.16);
-              else if (event.key === "ArrowLeft" || event.key === "ArrowRight")
-                yaw(view.yaw + (event.key === "ArrowLeft" ? -0.4 : 0.4));
-              else pitch(view.pitch + (event.key === "ArrowUp" ? -0.3 : 0.3));
-            }) as EventListener);
-            cleanups.push(() =>
-              attributes.forEach(({ el, values }) => {
-                el.removeAttribute("opacity");
-                values.forEach(([key, value]) => el.setAttribute(key, value));
-              }),
-            );
+            links[i].setAttribute("d", `M220 180L${nx} ${ny}`);
           });
-
-        // A textured globe and orbiting ring markers make the rotation visible.
-        const planet = root.querySelector<HTMLElement>(".contact-planet")!;
-        const surface = planet.querySelector(".planet-surface")!;
-        const track = planet.querySelector(".ring-track")!;
-        const spin = gsap.to(surface, {
-          xPercent: -50,
-          duration: 9,
-          repeat: -1,
-          ease: "none",
-          paused: true,
+        };
+        const mx = gsap.quickTo(moleculeState, "x", {
+          duration: 0.65,
+          onUpdate: drawMolecule,
+          ease: "power3.out",
         });
-        const ringSpin = gsap.to(track, {
-          rotation: 360,
-          duration: 5,
-          repeat: -1,
-          ease: "none",
-          paused: true,
+        const my = gsap.quickTo(moleculeState, "y", {
+          duration: 0.65,
+          onUpdate: drawMolecule,
+          ease: "power3.out",
         });
-        const ring = planet.querySelector(".planet-ring")!;
-        const ringX = quick(ring, "rotationX"),
-          ringY = quick(ring, "rotationY");
-        const stopPlanet = () => {
-          spin.pause();
-          ringSpin.pause();
+        const mo = gsap.quickTo(moleculeState, "open", {
+          duration: 0.8,
+          onUpdate: drawMolecule,
+          ease: "power3.out",
+        });
+        const rings = molecule.querySelector(".molecule-rings")!;
+        const ringX = quick(rings, "x"),
+          ringY = quick(rings, "y");
+        const resetMolecule = () => {
+          mx(0);
+          my(0);
+          mo(0);
           ringX(0);
           ringY(0);
         };
-        listen(planet, "pointerenter", () => {
-          spin.play();
-          ringSpin.play();
+        listen(molecule, "pointerenter", () => mo(1));
+        listen(molecule, "pointermove", ((event: PointerEvent) => {
+          const b = molecule.getBoundingClientRect();
+          const x = (event.clientX - b.left) / b.width - 0.5,
+            y = (event.clientY - b.top) / b.height - 0.5;
+          mx(x);
+          my(y);
+          ringX(-x * 40);
+          ringY(-y * 28);
+        }) as EventListener);
+        listen(molecule, "pointerleave", resetMolecule);
+        listen(window, "blur", resetMolecule);
+        cleanups.push(() => {
+          nodes.forEach((node, i) =>
+            node.setAttribute("transform", originalNodes[i]),
+          );
+          links.forEach((link, i) => link.setAttribute("d", originalLinks[i]));
         });
+
+        // Career architecture is a stack of independently suspended planes, linked to the titles.
+        const blueprint = root.querySelector<HTMLElement>(".career-blueprint")!;
+        const planes = [
+          ...blueprint.querySelectorAll<SVGGElement>("[data-career-layer]"),
+        ];
+        const planeControls = planes.map((plane) => {
+          const i = Number(plane.dataset.careerLayer);
+          return {
+            i,
+            x: quick(plane, "x"),
+            y: quick(plane, "y"),
+            rotation: quick(plane, "rotation"),
+          };
+        });
+        const restPlanes = () =>
+          planeControls.forEach((p) => {
+            p.x(0);
+            p.y(p.i * 85);
+            p.rotation(0);
+          });
+        listen(blueprint, "pointermove", ((event: PointerEvent) => {
+          const b = blueprint.getBoundingClientRect();
+          const x = (event.clientX - b.left) / b.width - 0.5,
+            y = (event.clientY - b.top) / b.height - 0.5;
+          planeControls.forEach((p) => {
+            const depth = [90, 48, 15][p.i];
+            p.x(x * depth);
+            p.y(p.i * 85 + y * depth + (p.i - 1) * 20);
+            p.rotation(x * (3 - p.i) * 3);
+          });
+        }) as EventListener);
+        listen(blueprint, "pointerleave", restPlanes);
+        listen(window, "blur", restPlanes);
+
+        // Continuous scrubbing: cursor position controls globe longitude, ring attitude, and light.
+        const planet = root.querySelector<HTMLElement>(".contact-planet")!;
+        const surface = planet.querySelector(".planet-surface")!;
+        const core = planet.querySelector(".planet-core")!;
+        const track = planet.querySelector(".ring-track")!;
+        const ring = planet.querySelector(".planet-ring")!;
+        gsap.set(core, { transformPerspective: 800 });
+        const longitude = quick(surface, "xPercent", 1.2),
+          lat = quick(surface, "y", 1);
+        const trackRotation = quick(track, "rotation", 1.2),
+          attitude = quick(ring, "rotation", 0.9),
+          incline = quick(ring, "rotationX", 0.9);
+        const coreX = quick(core, "rotationY"),
+          coreY = quick(core, "rotationX"),
+          coreShift = quick(core, "x");
+        let planetX = 0,
+          planetY = 0;
+        const steerPlanet = () => {
+          longitude(-25 + planetX * 45);
+          lat(planetY * 18);
+          trackRotation(planetX * 500 + planetY * 150);
+          attitude(-27 + planetX * 45);
+          incline(planetY * 60);
+          coreX(planetX * 32);
+          coreY(-planetY * 24);
+          coreShift(planetX * 18);
+          planet.style.setProperty("--planet-light-x", `${28 + planetX * 35}%`);
+          planet.style.setProperty("--planet-light-y", `${24 + planetY * 30}%`);
+        };
+        const restPlanet = () => {
+          planetX = 0;
+          planetY = 0;
+          steerPlanet();
+        };
         listen(planet, "pointermove", ((event: PointerEvent) => {
           const b = planet.getBoundingClientRect();
-          ringX(((event.clientY - b.top) / b.height - 0.5) * 35);
-          ringY(((event.clientX - b.left) / b.width - 0.5) * 35);
+          planetX = (event.clientX - b.left) / b.width - 0.5;
+          planetY = (event.clientY - b.top) / b.height - 0.5;
+          steerPlanet();
         }) as EventListener);
-        listen(planet, "pointerleave", stopPlanet);
-        listen(window, "blur", stopPlanet);
-        listen(planet, "focus", () => {
-          spin.play();
-          ringSpin.play();
+        listen(planet, "keydown", ((event: KeyboardEvent) => {
+          if (
+            ![
+              "ArrowLeft",
+              "ArrowRight",
+              "ArrowUp",
+              "ArrowDown",
+              "Home",
+            ].includes(event.key)
+          )
+            return;
+          event.preventDefault();
+          if (event.key === "Home") {
+            restPlanet();
+            return;
+          }
+          if (event.key === "ArrowLeft" || event.key === "ArrowRight")
+            planetX += event.key === "ArrowLeft" ? -0.15 : 0.15;
+          else planetY += event.key === "ArrowUp" ? -0.15 : 0.15;
+          planetX = gsap.utils.clamp(-0.6, 0.6, planetX);
+          planetY = gsap.utils.clamp(-0.6, 0.6, planetY);
+          steerPlanet();
+        }) as EventListener);
+        listen(planet, "pointerleave", restPlanet);
+        listen(planet, "blur", restPlanet);
+        listen(window, "blur", restPlanet);
+        cleanups.push(() => {
+          planet.style.removeProperty("--planet-light-x");
+          planet.style.removeProperty("--planet-light-y");
         });
-        listen(planet, "blur", stopPlanet);
 
         // Small objects spring forward independently, including the floating labels.
         root

@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import StackMap from "./StackMap";
 import MotionScene from "./MotionScene";
 import StarField from "./StarField";
-import OrbitalSculpture from "./OrbitalSculpture";
+import CareerJourney from "./CareerJourney";
 
 // Set to null to keep the portrait frame with a monogram placeholder.
 const headshotSrc: string | null = "/images/headshot.webp";
@@ -275,6 +275,7 @@ export default function Home() {
                 <div className="work-art gaming-art" aria-hidden="true">
                   <span className="art-label">WORLD / WEB</span>
                   <div className="terrain-grid" />
+                  <div className="art-scan" />
                   <svg viewBox="0 0 540 280" fill="none">
                     <defs>
                       <linearGradient
@@ -320,6 +321,32 @@ export default function Home() {
                       stroke="#d7c6ff"
                     />
                   </svg>
+                  <svg className="portal-fx" viewBox="0 0 540 280" fill="none">
+                    <g className="portal-gate">
+                      <path
+                        d="m365 24 72 71-72 72-72-72Z"
+                        stroke="#72e5bf"
+                        strokeWidth="2"
+                      />
+                      <path
+                        d="m365 7 89 88-89 89-89-89Z"
+                        stroke="#c6a9ff"
+                        strokeDasharray="8 12"
+                      />
+                    </g>
+                    <path
+                      className="terrain-trace"
+                      d="m35 255 125-138 55 58 91-105 180 185"
+                      stroke="#d5ffed"
+                      strokeWidth="3"
+                    />
+                    <path
+                      className="shooting-star"
+                      d="m55 70 80-32"
+                      stroke="#d6c0ff"
+                      strokeWidth="2"
+                    />
+                  </svg>
                   <span className="art-bottom">
                     FRONTEND ARCHITECTURE · CONTENT AT SCALE
                   </span>
@@ -363,6 +390,14 @@ export default function Home() {
               <article className="work-card">
                 <div className="work-art data-art" aria-hidden="true">
                   <span className="art-label">SIGNAL / SYSTEMS</span>
+                  <div className="art-scan" />
+                  <div className="signal-bars" aria-hidden="true">
+                    {[36, 60, 42, 83, 54, 95, 67, 76, 45, 90, 63, 80].map(
+                      (height, index) => (
+                        <i key={index} style={{ height: `${height}%` }} />
+                      ),
+                    )}
+                  </div>
                   <svg viewBox="0 0 540 280" fill="none">
                     <path
                       d="M45 208H495M45 155H495M45 102H495"
@@ -388,6 +423,22 @@ export default function Home() {
                       stroke="#72e5bf"
                       strokeOpacity=".3"
                       strokeDasharray="3 5"
+                    />
+                  </svg>
+                  <svg className="signal-fx" viewBox="0 0 540 280" fill="none">
+                    <path
+                      className="signal-trace"
+                      d="M45 192c35 0 42-30 70-30s40 19 63 19 41-52 75-52 28 10 61 10 47-37 77-37 70 18 104 0"
+                      stroke="#d1ffec"
+                      strokeWidth="5"
+                    />
+                    <circle
+                      className="signal-ping"
+                      cx="391"
+                      cy="102"
+                      r="10"
+                      stroke="#72e5bf"
+                      strokeWidth="2"
                     />
                   </svg>
                   <div className="signal-legend">
@@ -474,54 +525,7 @@ export default function Home() {
               Full résumé <FiArrowUpRight aria-hidden="true" />
             </a>
           </div>
-          <div className="experience-layout">
-            <div className="experience-intro">
-              <h2 id="experience-title">
-                Growing with
-                <br />
-                <span className="lavender">the work.</span>
-              </h2>
-              <p>
-                Vigilus <span>/</span> May 2019 — present
-              </p>
-              <p>
-                From writing the features to shaping the systems and helping
-                teams ship them.
-              </p>
-              <OrbitalSculpture variant="career" />
-            </div>
-            <div className="timeline">
-              <article className="timeline-item">
-                <span className="timeline-dot" />
-                <p className="timeline-date">2025 — PRESENT</p>
-                <h3>Principal Frontend Engineer</h3>
-                <p>
-                  Guide frontend architecture and technical quality across
-                  client applications. Scope delivery, mentor engineers, and
-                  connect product requirements to practical engineering
-                  decisions.
-                </p>
-              </article>
-              <article className="timeline-item">
-                <span className="timeline-dot" />
-                <p className="timeline-date">2022 — 2025</p>
-                <h3>Senior Software Engineer</h3>
-                <p>
-                  Built and delivered production web and mobile applications,
-                  working across React, React Native, C#/.NET, APIs, and AWS.
-                </p>
-              </article>
-              <article className="timeline-item">
-                <span className="timeline-dot" />
-                <p className="timeline-date">2019 — 2022</p>
-                <h3>Software Engineer</h3>
-                <p>
-                  Developed client applications and grew the foundations of my
-                  work in frontend engineering, integration, and delivery.
-                </p>
-              </article>
-            </div>
-          </div>
+          <CareerJourney />
           <div className="education-note">
             <span className="education-icon">&lt;/&gt;</span>
             <div>
@@ -558,7 +562,7 @@ export default function Home() {
               className="contact-planet"
               tabIndex={0}
               role="img"
-              aria-label="Interactive ringed planet. Hover or focus to spin."
+              aria-label="Interactive ringed planet. Move the pointer or use arrow keys to turn the surface and rings. Home resets the view."
             >
               <div className="planet-core">
                 <div className="planet-surface" />

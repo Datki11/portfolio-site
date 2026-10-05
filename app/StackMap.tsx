@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import OrbitalSculpture from "./OrbitalSculpture";
+import Molecule from "./Molecule";
 
 const areas = [
   {
@@ -56,7 +56,7 @@ export default function StackMap() {
   const area = areas[active];
   return (
     <div className="stack-map">
-      <OrbitalSculpture active={active} />
+      <Molecule active={active} onSelect={setActive} />
       <div className="stack-content">
         <div
           className="stack-tabs"
