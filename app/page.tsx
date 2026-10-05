@@ -1,11 +1,5 @@
 import Image from "next/image";
-import {
-  FiArrowDown,
-  FiArrowUpRight,
-  FiCode,
-  FiCpu,
-  FiShield,
-} from "react-icons/fi";
+import { FiArrowDown, FiArrowUpRight, FiCode, FiCpu } from "react-icons/fi";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import StackMap from "./StackMap";
 import MotionScene from "./MotionScene";
@@ -461,6 +455,107 @@ export default function Home() {
                   </details>
                 </div>
               </article>
+              <article className="work-card" aria-labelledby="speedyeats-title">
+                <div className="work-art security-art" aria-hidden="true">
+                  <span className="art-label">TRUST / INFRASTRUCTURE</span>
+                  <div className="art-scan" />
+                  <svg viewBox="0 0 540 280" fill="none">
+                    <ellipse
+                      cx="270"
+                      cy="133"
+                      rx="132"
+                      ry="73"
+                      transform="rotate(-24 270 133)"
+                      stroke="#c6a9ff"
+                      strokeOpacity=".35"
+                    />
+                    <path
+                      d="M105 133h70m190 0h70M270 32v28m0 146v32"
+                      stroke="#c6a9ff"
+                      strokeOpacity=".25"
+                      strokeDasharray="4 6"
+                    />
+                    <rect
+                      x="216"
+                      y="78"
+                      width="108"
+                      height="108"
+                      rx="28"
+                      fill="#251c35"
+                      stroke="#a881d3"
+                      strokeOpacity=".6"
+                    />
+                    <path
+                      d="m270 105 24 10v21c0 17-24 29-24 29s-24-12-24-29v-21Z"
+                      stroke="#72e5bf"
+                      strokeWidth="3"
+                    />
+                    <path
+                      d="m259 134 8 8 15-17"
+                      stroke="#72e5bf"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <circle cx="151" cy="161" r="5" fill="#72e5bf" />
+                    <circle cx="389" cy="105" r="4" fill="#c6a9ff" />
+                  </svg>
+                  <span className="art-bottom">
+                    INVESTIGATE · HARDEN · RESTORE
+                  </span>
+                </div>
+                <div className="work-card-copy">
+                  <p className="project-type">
+                    PRODUCTION INCIDENT / SHARED CONTRIBUTOR
+                  </p>
+                  <h3 id="speedyeats-title">
+                    SpeedyEats: securing an inherited system
+                  </h3>
+                  <p>
+                    Helped investigate an AWS security incident that interrupted
+                    email delivery. Implemented much of the remediation, brought
+                    in our cybersecurity team for an independent audit, and
+                    worked with AWS Support to restore SES.
+                  </p>
+                  <div className="tags">
+                    <span>AWS IAM</span>
+                    <span>EC2</span>
+                    <span>Secrets Manager</span>
+                    <span>SES</span>
+                    <span>Incident response</span>
+                  </div>
+                  <details>
+                    <summary>
+                      Behind the recovery{" "}
+                      <span>
+                        <FiArrowUpRight aria-hidden="true" />
+                      </span>
+                    </summary>
+                    <div className="case-detail">
+                      <p>
+                        Traced the issue across AWS, Apache, Laravel, and PHP
+                        logs to exposed application configuration. I escalated
+                        to our cybersecurity team, who audited the system,
+                        validated proposed fixes, and identified additional
+                        remediation work.
+                      </p>
+                      <p>
+                        Rotated exposed credentials, replaced long-lived IAM
+                        keys on EC2 with scoped instance roles, restricted SES
+                        access to the workload, and moved secrets into AWS
+                        Secrets Manager.
+                      </p>
+                      <p>
+                        Unauthorized sending stopped, and SES was reinstated
+                        after multiple rounds with AWS Support. The hardened
+                        configuration remains in place. The lesson: a working
+                        inherited deployment still needs an explicit review of
+                        secret handling, server exposure, and permissions.
+                      </p>
+                    </div>
+                  </details>
+                </div>
+              </article>
             </div>
             <div className="ai-note">
               <span className="ai-icon">
@@ -497,70 +592,6 @@ export default function Home() {
             </a>
           </div>
           <CareerJourney />
-          <article
-            className="experience-story"
-            aria-labelledby="speedyeats-title"
-          >
-            <div className="incident-visual" aria-hidden="true">
-              <span className="incident-orbit" />
-              <span className="incident-shield">
-                <FiShield />
-              </span>
-              <p>INVESTIGATE · HARDEN · RESTORE</p>
-              <span className="incident-status">
-                <i /> SES RESTORED
-              </span>
-            </div>
-            <div className="experience-story-copy">
-              <p className="project-type">
-                PRODUCTION INCIDENT / SHARED CONTRIBUTOR
-              </p>
-              <h3 id="speedyeats-title">
-                SpeedyEats: securing an inherited system
-              </h3>
-              <p>
-                Helped investigate an AWS security incident that interrupted
-                email delivery. Implemented much of the remediation, brought in
-                our cybersecurity team for an independent audit, and worked with
-                AWS Support to restore SES.
-              </p>
-              <div className="tags">
-                <span>AWS IAM</span>
-                <span>EC2</span>
-                <span>Secrets Manager</span>
-                <span>SES</span>
-                <span>Incident response</span>
-              </div>
-              <details>
-                <summary>
-                  Behind the recovery{" "}
-                  <span>
-                    <FiArrowUpRight aria-hidden="true" />
-                  </span>
-                </summary>
-                <div className="case-detail">
-                  <p>
-                    Traced the issue across AWS, Apache, Laravel, and PHP logs
-                    to exposed application configuration. I escalated to our
-                    cybersecurity team, who audited the system, validated
-                    proposed fixes, and identified additional remediation work.
-                  </p>
-                  <p>
-                    Rotated exposed credentials, replaced long-lived IAM keys on
-                    EC2 with scoped instance roles, restricted SES access to the
-                    workload, and moved secrets into AWS Secrets Manager.
-                  </p>
-                  <p>
-                    Unauthorized sending stopped, and SES was reinstated after
-                    multiple rounds with AWS Support. The hardened configuration
-                    remains in place. The lesson: a working inherited deployment
-                    still needs an explicit review of secret handling, server
-                    exposure, and permissions.
-                  </p>
-                </div>
-              </details>
-            </div>
-          </article>
           <div className="education-note">
             <span className="education-icon">&lt;/&gt;</span>
             <div>
