@@ -241,7 +241,7 @@ export default function Home() {
               <strong>
                 30<span>+</span>
               </strong>
-              <p>engineers trained</p>
+              <p>engineers supported with technical guidance</p>
             </div>
           </div>
         </section>
@@ -551,6 +551,126 @@ export default function Home() {
                         configuration remains in place. The lesson: a working
                         inherited deployment still needs an explicit review of
                         secret handling, server exposure, and permissions.
+                      </p>
+                    </div>
+                  </details>
+                </div>
+              </article>
+              <article className="work-card" aria-labelledby="centerline-title">
+                <div className="work-art standards-art" aria-hidden="true">
+                  <span className="art-label">CLARITY / COLLABORATION</span>
+                  <div className="art-scan" />
+                  <svg viewBox="0 0 540 280" fill="none">
+                    <rect
+                      x="137"
+                      y="57"
+                      width="234"
+                      height="166"
+                      rx="12"
+                      stroke="#c6a9ff"
+                      strokeOpacity=".2"
+                    />
+                    <rect
+                      x="151"
+                      y="45"
+                      width="234"
+                      height="166"
+                      rx="12"
+                      fill="#251c35"
+                      stroke="#a881d3"
+                      strokeOpacity=".55"
+                    />
+                    <path d="M151 80h234" stroke="#a881d3" strokeOpacity=".3" />
+                    <circle cx="169" cy="63" r="3" fill="#72e5bf" />
+                    <circle cx="181" cy="63" r="3" fill="#c6a9ff" />
+                    <circle cx="193" cy="63" r="3" fill="#a881d3" />
+                    <path
+                      d="m194 115-14 12 14 12m54-24 14 12-14 12m-18-30-16 54"
+                      stroke="#72e5bf"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M288 115h69m-69 14h47m-47 14h59M180 178h176"
+                      stroke="#c6a9ff"
+                      strokeOpacity=".4"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M385 129h42v50"
+                      stroke="#72e5bf"
+                      strokeOpacity=".4"
+                      strokeDasharray="4 5"
+                    />
+                    <circle
+                      cx="427"
+                      cy="191"
+                      r="14"
+                      fill="#21332f"
+                      stroke="#72e5bf"
+                    />
+                    <path
+                      d="m421 191 4 4 8-9"
+                      stroke="#72e5bf"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span className="art-bottom">
+                    CLEARER TYPES · SHARED STANDARDS
+                  </span>
+                </div>
+                <div className="work-card-copy">
+                  <p className="project-type">
+                    ENGINEERING QUALITY / TECHNICAL GUIDANCE
+                  </p>
+                  <h3 id="centerline-title">
+                    CENTERLINE: stronger types, shared standards
+                  </h3>
+                  <p>
+                    Supported a team building document-heavy architectural
+                    project management software through frontend reviews,
+                    TypeScript guidance, and hands-on debugging. Helped turn
+                    recurring feedback into shared tooling and more maintainable
+                    code.
+                  </p>
+                  <div className="tags">
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>Code review</span>
+                    <span>ESLint</span>
+                    <span>Prettier</span>
+                  </div>
+                  <details>
+                    <summary>
+                      Behind the build{" "}
+                      <span>
+                        <FiArrowUpRight aria-hidden="true" />
+                      </span>
+                    </summary>
+                    <div className="case-detail">
+                      <p>
+                        Worked alongside roughly ten other developers and
+                        reviewed a large share of the frontend work. Instead of
+                        simply rejecting type assertions or broad types, I
+                        helped developers understand where uncertainty came from
+                        and model application states more precisely.
+                      </p>
+                      <p>
+                        Walked teammates through debugging with logs, browser
+                        tools, network inspection, and breakpoints. Reinforced
+                        practical patterns for React, Redux, TanStack Query,
+                        Context, and reusable hooks.
+                      </p>
+                      <p>
+                        Helped establish consistent formatting with Prettier,
+                        followed by ESLint conventions that reduced reliance on
+                        manual review. I saw fewer repeated typing and
+                        state-modeling issues in later PRs, leaving more room to
+                        discuss correctness, architecture, and maintainability.
                       </p>
                     </div>
                   </details>
