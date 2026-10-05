@@ -45,7 +45,9 @@ The current audit reports five linked high-severity findings through `braces` in
 
 ## Interactive depth
 
-GSAP drives pointer-based parallax, portrait and card tilt, reactive stars, and floating labels. `app/MotionScene.tsx` owns the interactions and cleanup; `app/StarField.tsx` supplies deterministic star positions. Cards have independent artwork movement and pointer-following highlights. Skill tags and constellation nodes also respond to hover.
+GSAP drives layered portrait parallax, widely separated floating labels, and reactive stars. Project cards keep their text and controls stationary while their illustrations move and pulse. The skills and career sections use interactive orbital sculptures: 3D coordinates are projected into SVG, with perspective scaling, expanding orbits, and pointer or arrow-key rotation. The closing planet has a scrolling surface texture and independently rotating ring markers, which run while hovered or focused.
+
+`app/MotionScene.tsx` owns interactions and cleanup; `app/StarField.tsx` supplies deterministic stars. `app/OrbitalSculpture.tsx` and `app/lib/orbits.ts` provide the shared 3D geometry and static fallback.
 
 Motion runs only for fine pointers with hover support and when the visitor has not requested reduced motion. The floating motion control disables the enhanced interactions. All content stays visible and navigation remains usable without JavaScript. Effects return to rest on pointer exit and window blur; media-query changes and unmounts clean up the listeners and GSAP transforms.
 

@@ -1,15 +1,10 @@
 import Image from "next/image";
-import {
-  FiArrowDown,
-  FiArrowUpRight,
-  FiCode,
-  FiCpu,
-  FiLayers,
-} from "react-icons/fi";
+import { FiArrowDown, FiArrowUpRight, FiCode, FiCpu } from "react-icons/fi";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import StackMap from "./StackMap";
 import MotionScene from "./MotionScene";
 import StarField from "./StarField";
+import OrbitalSculpture from "./OrbitalSculpture";
 
 // Set to null to keep the portrait frame with a monogram placeholder.
 const headshotSrc: string | null = "/images/headshot.webp";
@@ -493,7 +488,7 @@ export default function Home() {
                 From writing the features to shaping the systems and helping
                 teams ship them.
               </p>
-              <FiLayers className="journey-icon" aria-hidden="true" />
+              <OrbitalSculpture variant="career" />
             </div>
             <div className="timeline">
               <article className="timeline-item">
@@ -559,9 +554,22 @@ export default function Home() {
                 daniel@danielatkinson.dev <FiArrowUpRight aria-hidden="true" />
               </a>
             </div>
-            <div className="contact-planet" aria-hidden="true">
-              <div className="planet-core" />
-              <div className="planet-ring" />
+            <div
+              className="contact-planet"
+              tabIndex={0}
+              role="img"
+              aria-label="Interactive ringed planet. Hover or focus to spin."
+            >
+              <div className="planet-core">
+                <div className="planet-surface" />
+              </div>
+              <div className="planet-ring">
+                <div className="ring-track">
+                  <i />
+                  <i />
+                  <i />
+                </div>
+              </div>
               <Spark className="planet-spark" />
             </div>
           </div>
