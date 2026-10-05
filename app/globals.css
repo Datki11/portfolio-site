@@ -512,7 +512,7 @@ h3 {
 }
 .impact-strip {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--line);
   margin-top: 40px;
   padding-top: 30px;
@@ -1228,17 +1228,16 @@ h3 {
     font-size: 9px;
   }
   .impact-strip {
-    grid-template-columns: 1fr 1fr;
-    gap: 25px 20px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
     margin-top: 26px;
     padding-top: 25px;
   }
   .impact-strip > div {
-    padding-left: 20px;
+    padding-left: 12px;
   }
-  .impact-strip > div:nth-child(3) {
+  .impact-strip > div:first-child {
     padding-left: 0;
-    border: 0;
   }
   .impact-strip strong {
     font-size: 36px;

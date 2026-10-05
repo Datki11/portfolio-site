@@ -237,12 +237,6 @@ export default function Home() {
               </strong>
               <p>applications scoped</p>
             </div>
-            <div>
-              <strong>
-                30<span>+</span>
-              </strong>
-              <p>engineers advised</p>
-            </div>
           </div>
         </section>
         <section
