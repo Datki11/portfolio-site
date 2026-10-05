@@ -241,7 +241,7 @@ export default function Home() {
               <strong>
                 30<span>+</span>
               </strong>
-              <p>engineers supported with technical guidance</p>
+              <p>engineers advised</p>
             </div>
           </div>
         </section>
