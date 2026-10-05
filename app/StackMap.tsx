@@ -35,18 +35,42 @@ const areas = [
     ],
   },
   {
-    label: "AI & delivery",
+    label: "AI workflows",
     node: "AI",
     title: "From a good idea to production.",
     description:
-      "AI workflows with scoped data access, streaming and voice, backed by automated tests and delivery pipelines.",
+      "Agent workflows, permission-scoped data access, streamed responses, and real-time voice interactions.",
+    skills: ["OpenAI APIs", "LangChain", "LangGraph", "DeepAgents"],
+  },
+  {
+    label: "Cloud",
+    node: "AWS",
+    title: "Built to run in the real world.",
+    description:
+      "Application infrastructure for authentication, storage, delivery, and monitoring.",
     skills: [
-      "OpenAI APIs",
-      "LangChain",
-      "LangGraph",
+      "AWS",
+      "EC2 / S3",
+      "RDS / DynamoDB",
+      "Cognito",
+      "CloudFront",
+      "CloudWatch",
+      "Docker",
+    ],
+  },
+  {
+    label: "Delivery",
+    node: "CI",
+    title: "Confidence in every release.",
+    description:
+      "Automated tests and delivery pipelines that take web and mobile applications from implementation to production.",
+    skills: [
       "Jest",
       "Playwright",
       "GitHub Actions",
+      "CircleCI",
+      "Git",
+      "iOS / Android releases",
     ],
   },
 ];
@@ -85,8 +109,10 @@ export default function StackMap() {
                     e.key === "Home"
                       ? 0
                       : e.key === "End"
-                        ? 2
-                        : (index + (e.key === "ArrowRight" ? 1 : 2)) % 3;
+                        ? areas.length - 1
+                        : (index +
+                            (e.key === "ArrowRight" ? 1 : areas.length - 1)) %
+                          areas.length;
                   setActive(next);
                   document.getElementById(`stack-tab-${next}`)?.focus();
                 }

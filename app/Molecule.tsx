@@ -1,7 +1,9 @@
 const subjects = [
-  { label: "Interfaces", short: "UI", x: 85, y: 100 },
-  { label: "Systems", short: "API", x: 350, y: 104 },
-  { label: "AI & delivery", short: "AI", x: 225, y: 276 },
+  { label: "Interfaces", short: "UI", x: 80, y: 145 },
+  { label: "Systems", short: "API", x: 360, y: 145 },
+  { label: "AI workflows", short: "AI", x: 220, y: 55 },
+  { label: "Cloud", short: "AWS", x: 115, y: 310 },
+  { label: "Delivery", short: "CI", x: 325, y: 310 },
 ];
 export default function Molecule({
   active,
@@ -16,29 +18,29 @@ export default function Molecule({
       role="group"
       aria-label="Choose a connected skill subject"
     >
-      <svg viewBox="0 0 440 360" fill="none">
+      <svg viewBox="0 0 440 440" fill="none">
         <g className="molecule-rings" aria-hidden="true">
           <ellipse
             cx="220"
-            cy="180"
+            cy="200"
             rx="179"
             ry="108"
-            transform="rotate(-24 220 180)"
+            transform="rotate(-24 220 200)"
             stroke="#b697ef"
             strokeOpacity=".2"
           />
           <ellipse
             cx="220"
-            cy="180"
+            cy="200"
             rx="157"
             ry="117"
-            transform="rotate(30 220 180)"
+            transform="rotate(30 220 200)"
             stroke="#b697ef"
             strokeOpacity=".2"
           />
           <circle
             cx="220"
-            cy="180"
+            cy="200"
             r="124"
             stroke="#b697ef"
             strokeOpacity=".15"
@@ -49,17 +51,17 @@ export default function Molecule({
           <path
             key={i}
             data-molecule-link={i}
-            d={`M220 180L${s.x} ${s.y}`}
+            d={`M220 200L${s.x} ${s.y}`}
             stroke={active === i ? "#72e5bf" : "#b697ef"}
             strokeOpacity={active === i ? 0.7 : 0.3}
             aria-hidden="true"
           />
         ))}
         <g className="molecule-center" aria-hidden="true">
-          <circle cx="220" cy="180" r="46" fill="#20182e" stroke="#b697ef" />
+          <circle cx="220" cy="200" r="46" fill="#20182e" stroke="#b697ef" />
           <text
             x="220"
-            y="188"
+            y="208"
             textAnchor="middle"
             fill="#e7d9fc"
             fontFamily="monospace"

@@ -290,21 +290,6 @@ export default function Home() {
                         <stop offset="1" stopColor="#a382ff" stopOpacity="0" />
                       </linearGradient>
                     </defs>
-                    <circle
-                      cx="365"
-                      cy="95"
-                      r="43"
-                      stroke="#72e5bf"
-                      strokeOpacity=".6"
-                    />
-                    <circle
-                      cx="365"
-                      cy="95"
-                      r="54"
-                      stroke="#72e5bf"
-                      strokeOpacity=".2"
-                      strokeDasharray="2 7"
-                    />
                     <path
                       d="m35 255 125-138 55 58 91-105 180 185H35Z"
                       fill="url(#mountain-fill)"
@@ -322,18 +307,6 @@ export default function Home() {
                     />
                   </svg>
                   <svg className="portal-fx" viewBox="0 0 540 280" fill="none">
-                    <g className="portal-gate">
-                      <path
-                        d="m365 24 72 71-72 72-72-72Z"
-                        stroke="#72e5bf"
-                        strokeWidth="2"
-                      />
-                      <path
-                        d="m365 7 89 88-89 89-89-89Z"
-                        stroke="#c6a9ff"
-                        strokeDasharray="8 12"
-                      />
-                    </g>
                     <path
                       className="terrain-trace"
                       d="m35 255 125-138 55 58 91-105 180 185"
@@ -431,14 +404,6 @@ export default function Home() {
                       d="M45 192c35 0 42-30 70-30s40 19 63 19 41-52 75-52 28 10 61 10 47-37 77-37 70 18 104 0"
                       stroke="#d1ffec"
                       strokeWidth="5"
-                    />
-                    <circle
-                      className="signal-ping"
-                      cx="391"
-                      cy="102"
-                      r="10"
-                      stroke="#72e5bf"
-                      strokeWidth="2"
                     />
                   </svg>
                   <div className="signal-legend">

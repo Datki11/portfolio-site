@@ -45,9 +45,9 @@ The current audit reports five linked high-severity findings through `braces` in
 
 ## Interactive depth
 
-GSAP drives four strongly separated star depths and layered portrait parallax. The flat molecule has real clickable and keyboard-operable subject nodes synchronized with the tabs. Its connections stretch as foreground and background layers travel independently.
+GSAP drives four restrained star depths and layered portrait parallax from one viewport-relative cursor position. Hero layers move in a consistent direction without proximity scaling, extra hover rotations, or label spreading. The flat molecule offers five clickable and keyboard-operable subjects: Interfaces, Systems, AI workflows, Cloud, and Delivery. Nodes stay synchronized with the tabs, with room for labels even while expanded.
 
-Project copy and controls remain fixed. Hovering or focusing a project starts an artwork-only sequence: a rotating portal, shooting light and terrain tracing for the gaming site; scanning, live bars and signal pulses for analytics. Career titles and the three layers of a separate architectural blueprint select one another. The planet is continuously scrubbed by pointer position or arrow keys, controlling surface longitude, ring angle, and lighting; Home resets its view.
+Project copy and controls remain fixed. Hovering or focusing a project starts terrain tracing and an occasional shooting star for the gaming site, or line tracing for analytics. Both have a brief shimmer with a seven-second interval between passes; chart bars stay still. The career blueprint expands once while the pointer or keyboard focus is inside the career area. Moving between titles and planes does not alter that expansion. Selecting a title or plane smoothly transitions the corresponding colors. The planet is continuously scrubbed by pointer position or arrow keys, controlling surface longitude, ring angle, and lighting; Home resets its view.
 
 `app/MotionScene.tsx` owns motion and cleanup; `app/StarField.tsx` supplies deterministic stars. `app/Molecule.tsx` and `app/StackMap.tsx` provide skill selection. `app/CareerJourney.tsx` owns the career blueprint and title selection.
 

@@ -41,11 +41,11 @@ export default function MotionScene({ children }: { children: ReactNode }) {
           { element: portrait, depth: 14 },
           {
             element: root.querySelector<HTMLElement>(".orbit-label-top")!,
-            depth: 110,
+            depth: 44,
           },
           {
             element: root.querySelector<HTMLElement>(".orbit-label-bottom")!,
-            depth: 145,
+            depth: 60,
           },
           {
             element: root.querySelector<HTMLElement>(".hero-spark")!,
@@ -53,7 +53,7 @@ export default function MotionScene({ children }: { children: ReactNode }) {
           },
           {
             element: root.querySelector<HTMLElement>(".portrait-orbits")!,
-            depth: -14,
+            depth: 8,
           },
         ].map(({ element, depth }) => ({
           element,
@@ -68,39 +68,22 @@ export default function MotionScene({ children }: { children: ReactNode }) {
           ...root.querySelectorAll<HTMLElement>(".depth-star"),
         ].map((star, index) => ({
           element: star,
-          depth: [18, 65, 135, 235][index % 4],
+          depth: [12, 28, 50, 80][index % 4],
           x: quick(star, "x", 0.9),
           y: quick(star, "y", 0.9),
-          scale: quick(star, "scale", 0.35),
         }));
-        const sky = root.querySelector<HTMLElement>(".sky-section")!;
         const glow = root.querySelector<HTMLElement>(".cursor-nebula")!;
         const glowX = quick(glow, "x", 1.1),
           glowY = quick(glow, "y", 1.1);
         const cursor = { x: 0, y: 0 };
-        const separation = { amount: 0 };
         const positionLayers = () =>
-          layers.forEach((layer, index) => {
-            const direction = index === 1 ? -1 : index === 2 ? 1 : 0;
-            layer.x(
-              cursor.x * layer.depth + direction * separation.amount * 32,
-            );
-            layer.y(
-              cursor.y * layer.depth + direction * separation.amount * 34,
-            );
+          layers.forEach((layer) => {
+            layer.x(cursor.x * layer.depth);
+            layer.y(cursor.y * layer.depth * 0.65);
           });
-        const separate = gsap.quickTo(separation, "amount", {
-          duration: 0.8,
-          ease: "power3.out",
-          onUpdate: positionLayers,
-        });
-        const composition = root.querySelector(".portrait-composition")!;
-        listen(composition, "pointerenter", () => separate(1));
-        listen(composition, "pointerleave", () => separate(0));
         const resetHero = () => {
           cursor.x = 0;
           cursor.y = 0;
-          separate(0);
           layers.forEach((layer) => {
             layer.x(0);
             layer.y(0);
@@ -112,34 +95,23 @@ export default function MotionScene({ children }: { children: ReactNode }) {
           stars.forEach((star) => {
             star.x(0);
             star.y(0);
-            star.scale(1);
           });
         };
         listen(hero, "pointermove", ((event: PointerEvent) => {
           if (event.pointerType !== "mouse") return;
-          const bounds = hero.getBoundingClientRect();
-          const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-          const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+          // Viewport coordinates keep the target stable when the page scrolls.
+          const x = event.clientX / window.innerWidth - 0.5;
+          const y = event.clientY / window.innerHeight - 0.5;
           cursor.x = x;
           cursor.y = y;
           positionLayers();
-          portraitX(-y * 13);
-          portraitY(x * 16);
+          portraitX(-y * 6);
+          portraitY(x * 8);
           glowX(x * 90);
           glowY(y * 60);
-          const skyBounds = sky.getBoundingClientRect();
           stars.forEach((star) => {
-            const sx =
-              skyBounds.left +
-              (skyBounds.width * parseFloat(star.element.style.left)) / 100;
-            const sy =
-              skyBounds.top +
-              (skyBounds.height * parseFloat(star.element.style.top)) / 100;
-            const distance = Math.hypot(event.clientX - sx, event.clientY - sy);
-            const proximity = Math.max(0, 1 - distance / 150);
             star.x(x * star.depth);
             star.y(y * star.depth * 0.8);
-            star.scale(1 + proximity * 2.7);
           });
         }) as EventListener);
         listen(hero, "pointerleave", resetHero);
@@ -148,34 +120,21 @@ export default function MotionScene({ children }: { children: ReactNode }) {
         // Dedicated visual sequences live inside the artwork, never on the reading surface.
         root.querySelectorAll<HTMLElement>(".work-card").forEach((card) => {
           const art = card.querySelector<HTMLElement>(".work-art")!;
-          const main = art.querySelector("svg")!;
-          const x = quick(main, "x"),
-            y = quick(main, "y");
           const scan = art.querySelector(".art-scan")!;
           const sweep = gsap.fromTo(
             scan,
             { xPercent: -140 },
             {
               xPercent: 260,
-              duration: 2.2,
+              duration: 1.8,
+              repeatDelay: 7,
               repeat: -1,
               paused: true,
               ease: "power1.inOut",
             },
           );
           const loops: gsap.core.Tween[] = [sweep];
-          const gate = art.querySelector(".portal-gate");
-          if (gate) {
-            loops.push(
-              gsap.to(gate, {
-                rotation: 180,
-                svgOrigin: "365 95",
-                duration: 5,
-                repeat: -1,
-                paused: true,
-                ease: "none",
-              }),
-            );
+          if (art.querySelector(".shooting-star")) {
             const meteor = art.querySelector(".shooting-star")!;
             loops.push(
               gsap.fromTo(
@@ -187,7 +146,7 @@ export default function MotionScene({ children }: { children: ReactNode }) {
                   opacity: 1,
                   duration: 1.5,
                   repeat: -1,
-                  repeatDelay: 0.7,
+                  repeatDelay: 3.5,
                   paused: true,
                   ease: "power2.in",
                 },
@@ -212,43 +171,12 @@ export default function MotionScene({ children }: { children: ReactNode }) {
                 }),
               );
             });
-          const bars = art.querySelectorAll(".signal-bars i");
-          if (bars.length)
-            loops.push(
-              gsap.to(bars, {
-                scaleY: (i) => [0.28, 1.5, 0.6, 1.25][i % 4],
-                transformOrigin: "bottom",
-                duration: 0.7,
-                stagger: { each: 0.06, repeat: -1, yoyo: true },
-                paused: true,
-                ease: "sine.inOut",
-              }),
-            );
-          const ping = art.querySelector(".signal-ping");
-          if (ping)
-            loops.push(
-              gsap.fromTo(
-                ping,
-                { scale: 0.4, opacity: 1 },
-                {
-                  scale: 5,
-                  opacity: 0,
-                  svgOrigin: "391 102",
-                  duration: 1.5,
-                  repeat: -1,
-                  paused: true,
-                  ease: "power2.out",
-                },
-              ),
-            );
           const enter = () => {
             art.dataset.playing = "true";
             loops.forEach((loop) => loop.play());
           };
           const leave = () => {
             delete art.dataset.playing;
-            x(0);
-            y(0);
             loops.forEach((loop) => loop.pause());
           };
           listen(card, "pointerenter", enter);
@@ -257,11 +185,6 @@ export default function MotionScene({ children }: { children: ReactNode }) {
           listen(card, "focusin", enter);
           listen(card, "focusout", ((event: FocusEvent) => {
             if (!card.contains(event.relatedTarget as Node)) leave();
-          }) as EventListener);
-          listen(card, "pointermove", ((event: PointerEvent) => {
-            const b = card.getBoundingClientRect();
-            x(((event.clientX - b.left) / b.width - 0.5) * 35);
-            y(((event.clientY - b.top) / b.height - 0.5) * 22);
           }) as EventListener);
           cleanups.push(() => delete art.dataset.playing);
         });
@@ -282,24 +205,24 @@ export default function MotionScene({ children }: { children: ReactNode }) {
           nodes.forEach((node, i) => {
             const bx = Number(node.dataset.x),
               by = Number(node.dataset.y);
-            const depth = [70, -45, 110][i];
+            const depth = [32, 48, 24, 40, 56][i];
             const nx =
               bx +
-              (bx - 220) * moleculeState.open * 0.14 +
+              (bx - 220) * moleculeState.open * 0.06 +
               moleculeState.x * depth;
             const ny =
               by +
-              (by - 180) * moleculeState.open * 0.13 +
+              (by - 200) * moleculeState.open * 0.06 +
               moleculeState.y * depth * 0.6;
             const scale =
               1 +
               moleculeState.open * 0.04 +
-              moleculeState.x * [0.1, -0.12, 0.16][i];
+              moleculeState.x * [0.06, 0.08, 0.04, 0.06, 0.08][i];
             node.setAttribute(
               "transform",
               `translate(${nx} ${ny}) scale(${scale})`,
             );
-            links[i].setAttribute("d", `M220 180L${nx} ${ny}`);
+            links[i].setAttribute("d", `M220 200L${nx} ${ny}`);
           });
         };
         const mx = gsap.quickTo(moleculeState, "x", {
@@ -351,34 +274,40 @@ export default function MotionScene({ children }: { children: ReactNode }) {
         const planes = [
           ...blueprint.querySelectorAll<SVGGElement>("[data-career-layer]"),
         ];
-        const planeControls = planes.map((plane) => {
-          const i = Number(plane.dataset.careerLayer);
-          return {
-            i,
-            x: quick(plane, "x"),
-            y: quick(plane, "y"),
-            rotation: quick(plane, "rotation"),
-          };
+        const planeControls = planes.map((plane) => ({
+          i: Number(plane.dataset.careerLayer),
+          y: quick(plane, "y", 0.35),
+        }));
+        const careerArea =
+          root.querySelector<HTMLElement>(".experience-layout")!;
+        let pointerInside = false;
+        const updatePlanes = () => {
+          const expanded =
+            pointerInside || careerArea.contains(document.activeElement);
+          planeControls.forEach((p) =>
+            p.y(p.i * 85 + (expanded ? (p.i - 1) * 20 : 0)),
+          );
+        };
+        listen(careerArea, "pointerenter", () => {
+          pointerInside = true;
+          updatePlanes();
         });
-        const restPlanes = () =>
-          planeControls.forEach((p) => {
-            p.x(0);
-            p.y(p.i * 85);
-            p.rotation(0);
-          });
-        listen(blueprint, "pointermove", ((event: PointerEvent) => {
-          const b = blueprint.getBoundingClientRect();
-          const x = (event.clientX - b.left) / b.width - 0.5,
-            y = (event.clientY - b.top) / b.height - 0.5;
-          planeControls.forEach((p) => {
-            const depth = [90, 48, 15][p.i];
-            p.x(x * depth);
-            p.y(p.i * 85 + y * depth + (p.i - 1) * 20);
-            p.rotation(x * (3 - p.i) * 3);
-          });
+        listen(careerArea, "pointerleave", () => {
+          pointerInside = false;
+          updatePlanes();
+        });
+        listen(careerArea, "focusin", updatePlanes);
+        listen(careerArea, "focusout", ((event: FocusEvent) => {
+          if (!careerArea.contains(event.relatedTarget as Node)) {
+            planeControls.forEach((p) =>
+              p.y(p.i * 85 + (pointerInside ? (p.i - 1) * 20 : 0)),
+            );
+          }
         }) as EventListener);
-        listen(blueprint, "pointerleave", restPlanes);
-        listen(window, "blur", restPlanes);
+        listen(window, "blur", () => {
+          pointerInside = false;
+          planeControls.forEach((p) => p.y(p.i * 85));
+        });
 
         // Continuous scrubbing: cursor position controls globe longitude, ring attitude, and light.
         const planet = root.querySelector<HTMLElement>(".contact-planet")!;
@@ -451,10 +380,10 @@ export default function MotionScene({ children }: { children: ReactNode }) {
           planet.style.removeProperty("--planet-light-y");
         });
 
-        // Small objects spring forward independently, including the floating labels.
+        // Small accents outside the hero retain their individual hover feedback.
         root
           .querySelectorAll<HTMLElement>(
-            ".orbit-label, .hero-spark, .section-spark, .ai-spark, .contact-spark, .planet-spark, .button-mint, .hero-socials a",
+            ".section-spark, .ai-spark, .contact-spark, .planet-spark, .button-mint, .hero-socials a",
           )
           .forEach((element) => {
             const scale = quick(element, "scale", 0.4),
