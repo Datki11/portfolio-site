@@ -4,7 +4,8 @@
   --night: #12101d;
   --surface: #1b162a;
   --ink: #f5f1ff;
-  --muted: #b4aac7;
+  --muted: #d4cce2;
+  --caption: #c6b8d8;
   --line: #ffffff17;
   --violet: #8424ff;
   --lavender: #c6a9ff;
@@ -359,7 +360,7 @@ h1 {
   position: absolute;
   bottom: 3px;
   right: 15px;
-  color: #b79dcd;
+  color: var(--caption);
   font-size: 8px;
   letter-spacing: 1.6px;
 }
@@ -413,7 +414,7 @@ h1 {
   color: var(--mint);
 }
 .section-note {
-  color: #a395b8;
+  color: var(--caption);
   font-size: 8px;
   letter-spacing: 1.3px;
 }
@@ -599,14 +600,14 @@ h3 {
   left: 22px;
   top: 20px;
   font-size: 8px;
-  color: #c0add8;
+  color: var(--caption);
 }
 .art-bottom {
   position: absolute;
   left: 22px;
   bottom: 17px;
   font-size: 7px;
-  color: #ae9bc4;
+  color: var(--caption);
   letter-spacing: 1px;
 }
 .terrain-grid {
@@ -624,7 +625,7 @@ h3 {
   display: flex;
   gap: 14px;
   font-size: 8px;
-  color: #bdadc9;
+  color: var(--caption);
 }
 .signal-legend span {
   display: inline-flex;
@@ -831,7 +832,7 @@ h3 {
 }
 .education-caption {
   margin-left: auto;
-  color: #8f7ba4;
+  color: var(--caption);
   font-size: 8px;
 }
 .contact-section {
@@ -946,7 +947,7 @@ h3 {
 }
 .site-footer > span {
   font-size: 10px;
-  color: #a99bbd;
+  color: var(--caption);
 }
 .footer-star {
   color: var(--mint);
