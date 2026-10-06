@@ -199,7 +199,6 @@ export default function Home() {
             <p className="eyebrow">
               <span className="section-number">01</span> ABOUT
             </p>
-            <Constellation className="section-spark" />
           </div>
           <div className="about-intro">
             <h2 id="about-title">
