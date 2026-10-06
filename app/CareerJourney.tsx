@@ -3,24 +3,21 @@ import { useState } from "react";
 const roles = [
   {
     title: "Principal Frontend Engineer",
-    date: "2025 — PRESENT",
-    label: "Architecture & leadership",
+    date: "2025–Present",
     description:
-      "Guide frontend architecture and technical quality across client applications. Scope delivery, mentor engineers, and connect product requirements to practical engineering decisions.",
+      "Lead frontend architecture and technical direction across web and mobile projects. Scope and estimate work, review code, support developers, and contribute across APIs, cloud infrastructure, and AI-enabled features.",
   },
   {
     title: "Senior Software Engineer",
-    date: "2022 — 2025",
-    label: "Systems & delivery",
+    date: "2022–2025",
     description:
-      "Built and delivered production web and mobile applications, working across React, React Native, C#/.NET, APIs, and AWS.",
+      "Owned frontend implementation across React, React Native, and Next.js projects, integrated APIs and authentication, contributed to AWS infrastructure, and helped coordinate multi-developer projects.",
   },
   {
     title: "Software Engineer",
-    date: "2019 — 2022",
-    label: "Engineering foundations",
+    date: "2019–2022",
     description:
-      "Developed client applications and grew the foundations of my work in frontend engineering, integration, and delivery.",
+      "Built and maintained web, mobile, and desktop applications across React, React Native, and .NET projects.",
   },
 ];
 export default function CareerJourney() {
@@ -28,17 +25,14 @@ export default function CareerJourney() {
   return (
     <div className="experience-layout">
       <div className="experience-intro">
-        <h2 id="experience-title">
-          Growing with
-          <br />
-          <span className="lavender">the work.</span>
-        </h2>
+        <h2 id="experience-title">Experience</h2>
         <p>
           Vigilus <span>/</span> May 2019 — present
         </p>
         <p>
-          From writing the features to shaping the systems and helping teams
-          ship them.
+          I joined Vigilus in 2019 and moved from software engineer to senior
+          engineer and then principal frontend engineer as my scope expanded
+          across architecture, delivery, code review, and technical leadership.
         </p>
         <div
           className="career-blueprint"
@@ -118,10 +112,8 @@ export default function CareerJourney() {
             ))}
           </svg>
           <div className="blueprint-readout" aria-live="polite">
-            <span>
-              0{3 - active} / {roles[active].date}
-            </span>
-            <strong>{roles[active].label}</strong>
+            <span>{roles[active].date}</span>
+            <strong>{roles[active].title}</strong>
           </div>
         </div>
       </div>
@@ -132,7 +124,6 @@ export default function CareerJourney() {
             className={`timeline-item ${active === index ? "is-selected" : ""}`}
           >
             <span className="timeline-dot" />
-            <p className="timeline-date">{role.date}</p>
             <h3>
               <button
                 type="button"
@@ -144,6 +135,7 @@ export default function CareerJourney() {
                 {role.title}
               </button>
             </h3>
+            <p className="timeline-date">{role.date}</p>
             <p>{role.description}</p>
           </article>
         ))}

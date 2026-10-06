@@ -683,7 +683,7 @@ export default function Home() {
         >
           <div className="section-heading">
             <p className="eyebrow">
-              <span className="section-number">03</span> THE JOURNEY SO FAR
+              <span className="section-number">03</span> EMPLOYMENT
             </p>
             <a
               className="text-link"
@@ -701,7 +701,6 @@ export default function Home() {
               <p>BS, Computer Science</p>
               <span>Louisiana State University · 2017–2021</span>
             </div>
-            <span className="education-caption">WHERE THE JOURNEY STARTED</span>
           </div>
         </section>
         <section
