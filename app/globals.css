@@ -2109,3 +2109,32 @@ h3 {
 }
 
 .orbit-label { font-size: 14px; }
+
+.project-story {
+  padding-bottom: 28px;
+}
+.project-story .case-detail {
+  padding-bottom: 0;
+}
+.project-story .case-detail h4 {
+  font-size: 16px;
+  margin-top: 28px;
+}
+.project-story ul {
+  list-style: disc;
+  padding-left: 21px;
+  margin: 12px 0 24px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.65;
+}
+.project-story li + li {
+  margin-top: 12px;
+}
+.project-story li::marker {
+  color: var(--mint);
+}
+.project-story .tags {
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
