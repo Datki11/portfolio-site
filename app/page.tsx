@@ -7,7 +7,7 @@ import CareerJourney from "./CareerJourney";
 
 // Set to null to keep the portrait frame with a monogram placeholder.
 const headshotSrc: string | null = "/images/headshot.webp";
-const resumeHref = "/Daniel_Atkinson_Resume_2026.pdf";
+const resumeHref = "/Daniel_Atkinson_Resume_2026_Senior_Frontend_Engineer.pdf";
 
 function Spark({ className = "" }: { className?: string }) {
   return (
@@ -679,7 +679,7 @@ export default function Home() {
                 Get in <span>touch</span> <Spark className="contact-spark" />
               </h2>
               <p>
-                I’m open to senior frontend and frontend-heavy software
+                I’m open to senior frontend, full-stack, and frontend-heavy software
                 engineering roles.
               </p>
               <a
