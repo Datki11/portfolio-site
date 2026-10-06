@@ -869,7 +869,9 @@ h3 {
   margin-left: 8px;
 }
 .contact-inner > div > p:not(.eyebrow) {
-  color: #cbb5df;
+  color: var(--muted);
+  max-width: 500px;
+  line-height: 1.75;
   font-size: 14px;
   margin: 22px 0 0;
 }

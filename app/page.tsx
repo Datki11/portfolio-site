@@ -198,20 +198,15 @@ export default function Home() {
             </h2>
             <div>
               <p>
-                I’ve worked across web, mobile, desktop, cloud infrastructure,
-                and AI-enabled products since 2019.
+                Since 2019, I’ve worked across web, mobile, desktop, cloud
+                infrastructure, and AI-enabled products. I specialize in React
+                and TypeScript, with experience in APIs, authentication, AWS,
+                architecture, scoping, and delivery.
               </p>
               <p>
-                My strongest area is frontend engineering, especially React and
-                TypeScript, but my work regularly extends into APIs,
-                authentication, AWS, application architecture, technical
-                scoping, and delivery.
-              </p>
-              <p>
-                I’ve worked on both small teams and larger projects with
-                multiple developers, and I’m comfortable owning features,
-                reviewing code, helping define technical direction, and working
-                directly with clients and stakeholders.
+                On small and larger teams, I own features, review code, help set
+                technical direction, and work directly with clients and
+                stakeholders.
               </p>
             </div>
           </div>
@@ -678,14 +673,15 @@ export default function Home() {
           <div className="wrap contact-inner">
             <div>
               <p className="eyebrow">
-                <span className="section-number">04</span> SAY HELLO
+                <span className="section-number">04</span> CONTACT
               </p>
               <h2 id="contact-title">
-                Got an interesting
-                <br />
-                <span>problem?</span> <Spark className="contact-spark" />
+                Get in <span>touch</span> <Spark className="contact-spark" />
               </h2>
-              <p>I’d love to hear what you’re building.</p>
+              <p>
+                I’m open to senior frontend and frontend-heavy software
+                engineering roles.
+              </p>
               <a
                 className="contact-email"
                 href="mailto:daniel@danielatkinson.dev"

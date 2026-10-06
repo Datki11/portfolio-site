@@ -128,10 +128,7 @@ export default function Molecule({
           <circle cx="154" cy="42" r="2" fill="#c6a9ff" />
         </g>
       </svg>
-      <p className="diagram-hint">
-        TECHNICAL SKILLS
-        <span>Select a node to explore</span>
-      </p>
+      <p className="diagram-hint">TECHNICAL SKILLS</p>
     </div>
   );
 }

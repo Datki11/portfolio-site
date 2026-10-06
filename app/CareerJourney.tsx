@@ -30,9 +30,8 @@ export default function CareerJourney() {
           Vigilus <span>/</span> May 2019 — present
         </p>
         <p>
-          I joined Vigilus in 2019 and moved from software engineer to senior
-          engineer and then principal frontend engineer as my scope expanded
-          across architecture, delivery, code review, and technical leadership.
+          At Vigilus, my responsibilities span frontend architecture, delivery,
+          code review, and technical leadership.
         </p>
         <p>
           I’ve also conducted 80+ technical interviews as part of the team’s
