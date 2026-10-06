@@ -87,15 +87,15 @@ export default function CareerJourney() {
                 />
                 <path
                   d="m175 80 45-14 45 14-45 14Z"
-                  fill={active === i ? "#72e5bf" : "#9567c7"}
+                  fill={active === i ? "#72e5bf" : "#b18bdf"}
                 />
                 <text
                   x="220"
-                  y="84"
+                  y="87"
                   textAnchor="middle"
                   fill="#171222"
                   fontFamily="monospace"
-                  fontSize="12"
+                  fontSize="22"
                 >
                   0{3 - i}
                 </text>
