@@ -550,10 +550,7 @@ export default function Home() {
           <span className="logo-dot">.</span>
           <span className="logo-bracket">]</span>
         </a>
-        <span>
-          © {new Date().getFullYear()} Daniel Atkinson{" "}
-          <span className="footer-star">✦</span> Built with a little curiosity.
-        </span>
+        <span>© {new Date().getFullYear()} Daniel Atkinson</span>
         <div>
           <a
             href="https://github.com/Datki11"

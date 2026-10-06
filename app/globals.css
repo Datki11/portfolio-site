@@ -950,10 +950,6 @@ h3 {
   font-size: 10px;
   color: var(--caption);
 }
-.footer-star {
-  color: var(--mint);
-  margin-inline: 9px;
-}
 .site-footer > div {
   display: flex;
   gap: 25px;
