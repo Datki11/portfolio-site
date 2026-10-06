@@ -53,7 +53,7 @@ export default function Home() {
             <a href="#about">About</a>
             <a href="#work">Work</a>
             <a href="#experience">Experience</a>
-            <a className="nav-contact" href="mailto:daniel@danielatkinson.dev">
+            <a className="nav-contact" href="#contact">
               Let’s talk <FiArrowUpRight aria-hidden="true" />
             </a>
           </nav>
