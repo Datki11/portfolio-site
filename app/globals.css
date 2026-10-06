@@ -560,9 +560,11 @@ h3 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 26px;
-  align-items: start;
+  align-items: stretch;
 }
 .work-card {
+  display: flex;
+  flex-direction: column;
   background: #20192d;
   border: 1px solid #b594df26;
   border-radius: 14px;
@@ -573,6 +575,7 @@ h3 {
   border-color: #b594df70;
 }
 .work-art {
+  flex-shrink: 0;
   position: relative;
   aspect-ratio: 1.9;
   overflow: hidden;
@@ -2088,6 +2091,9 @@ h3 {
 .orbit-label { font-size: 14px; }
 
 .project-story {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   padding-bottom: 28px;
 }
 .project-story .case-detail {
@@ -2112,6 +2118,7 @@ h3 {
   color: var(--mint);
 }
 .project-story .tags {
+  margin-top: auto;
   border-top: 1px solid var(--line);
   padding-top: 24px;
 }
