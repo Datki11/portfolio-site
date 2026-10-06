@@ -2120,7 +2120,7 @@ h3 {
   color: var(--mint);
 }
 .project-story .tags {
-  margin-top: auto;
+  margin-bottom: auto;
   border-top: 1px solid var(--line);
   padding-top: 24px;
 }
