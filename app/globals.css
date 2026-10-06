@@ -192,7 +192,7 @@ h1 {
   letter-spacing: -0.6px;
   margin: 0 0 20px;
 }
-.hero-statement span {
+.hero-statement {
   color: var(--lavender);
 }
 .hero-description {
@@ -201,6 +201,9 @@ h1 {
   font-size: 15px;
   line-height: 1.85;
   margin: 0;
+}
+.hero-description + .hero-description {
+  margin-top: 16px;
 }
 .hero-actions {
   display: flex;

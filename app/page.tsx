@@ -57,28 +57,23 @@ export default function Home() {
 
           <section className="hero wrap" aria-labelledby="hero-title">
             <div className="hero-copy">
-              <p className="eyebrow">
-                <span className="status-dot" /> SENIOR FULL-STACK ENGINEER
-              </p>
-              <p className="hello">Hello, world. I’m</p>
               <h1 id="hero-title">
                 Daniel
                 <br />
                 Atkinson<span className="accent">.</span>
               </h1>
-              <p className="hero-statement">
-                From the first pixel
-                <br />
-                to the <span>last API call.</span>
+              <p className="hero-statement">Senior Frontend Engineer</p>
+              <p className="hero-description">
+                I build production web and mobile applications with React,
+                TypeScript, Next.js, React Native, and AWS.
               </p>
               <p className="hero-description">
-                7+ years building web, mobile, and AI-powered products. I like
-                thoughtful interfaces, sturdy systems, and figuring out the
-                tricky bits.
+                7+ years of experience across frontend architecture, API
+                integrations, technical scoping, and project delivery.
               </p>
               <div className="hero-actions">
                 <a className="button button-mint" href="#work">
-                  Explore my work <FiArrowDown aria-hidden="true" />
+                  View projects <FiArrowDown aria-hidden="true" />
                 </a>
                 <a
                   className="resume-link"
@@ -122,7 +117,7 @@ export default function Home() {
               </svg>
               <Spark className="hero-spark" />
               <span className="orbit-label orbit-label-top">
-                <FiCode aria-hidden="true" /> Ideas → interfaces
+                <FiCode aria-hidden="true" /> React + TypeScript
               </span>
               <div className="portrait-frame">
                 {headshotSrc ? (
@@ -149,20 +144,19 @@ export default function Home() {
                   </div>
                 )}
                 <div className="portrait-bottom">
-                  <span className="status-dot" /> THE HUMAN BEHIND THE CODE
+                  <span className="status-dot" /> DANIEL ATKINSON
                 </div>
               </div>
               <span className="orbit-label orbit-label-bottom">
-                <span className="code-bracket">{`{ }`}</span> Curiosity, built
-                in.
+                <span className="code-bracket">{`{ }`}</span> Web & mobile apps
               </span>
               <span className="portrait-coordinate" aria-hidden="true">
-                01 / ALWAYS EXPLORING
+                01 / FRONTEND ENGINEERING
               </span>
             </div>
             <div className="hero-bottom">
               <a className="explore-link" href="#about">
-                <span className="scroll-line" /> More than a job title{" "}
+                <span className="scroll-line" /> Technical experience{" "}
                 <FiArrowDown aria-hidden="true" />
               </a>
               <div className="hero-socials">
@@ -193,27 +187,29 @@ export default function Home() {
         >
           <div className="section-heading">
             <p className="eyebrow">
-              <span className="section-number">01</span> A LITTLE ABOUT ME
+              <span className="section-number">01</span> ABOUT
             </p>
             <Spark className="section-spark" />
           </div>
           <div className="about-intro">
             <h2 id="about-title">
-              Curious by nature.
+              Frontend engineering.
               <br />
-              <span className="lavender">Engineer by trade.</span>
+              <span className="lavender">Project delivery.</span>
             </h2>
             <div>
               <p>
-                I’m a full-stack engineer with a frontend heart. Since 2019,
-                I’ve helped turn early ideas into production applications at
-                Vigilus, working across interfaces, APIs, cloud infrastructure,
-                and everything in between.
+                At Vigilus, I’ve worked on client applications since 2019,
+                including more than 20 React web applications and 15 React
+                Native applications. My work spans architecture, implementation,
+                API integration, testing, and release.
               </p>
               <p>
-                I enjoy the messy middle: asking the right questions, making the
-                tradeoffs, and finding a solution that works for the people
-                using it and the team building it.
+                I’ve led technical scoping for more than 40 web and mobile
+                applications, translating requirements into architecture,
+                integration plans, and delivery estimates. I also review
+                frontend code, provide technical guidance to other engineers,
+                and work directly with clients on requirements and tradeoffs.
               </p>
             </div>
           </div>
