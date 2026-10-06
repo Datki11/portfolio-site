@@ -447,7 +447,7 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 65px;
-  align-items: center;
+  align-items: start;
   margin-top: 23px;
 }
 .stack-tabs {
