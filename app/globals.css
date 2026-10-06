@@ -656,7 +656,7 @@ h3 {
 .work-card-copy > h3 {
   font-size: 27px;
 }
-.work-card-copy > p:not(.project-type) {
+.work-card-copy > p:not(.project-type):not(.detail-label) {
   color: var(--muted);
   font-size: 13px;
   line-height: 1.85;
@@ -1280,7 +1280,7 @@ h3 {
     font-size: 7px;
     letter-spacing: 0.8px;
   }
-  .work-card-copy > p:not(.project-type) {
+  .work-card-copy > p:not(.project-type):not(.detail-label) {
     font-size: 13px;
   }
   .art-label {
@@ -2063,4 +2063,28 @@ h3 {
 .impact-strip strong small {
   font-size: 18px;
   letter-spacing: 0;
+}
+
+.work-intro > p {
+  max-width: 640px;
+}
+.work-card-copy .detail-label {
+  font-size: 11px;
+  color: var(--caption);
+  margin: 0 0 9px;
+  letter-spacing: 0;
+}
+.project-type .detail-label {
+  margin-right: 8px;
+}
+.work-card-copy .project-type {
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+.case-detail h4 {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 8px;
 }

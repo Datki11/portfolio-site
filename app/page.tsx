@@ -253,27 +253,21 @@ export default function Home() {
           <div className="wrap">
             <div className="section-heading">
               <p className="eyebrow">
-                <span className="section-number">02</span> SELECTED WORK
+                <span className="section-number">02</span> PROJECTS
               </p>
-              <span className="section-note">
-                REAL PRODUCTS. INTERESTING PROBLEMS.
-              </span>
             </div>
             <div className="work-intro">
-              <h2 id="work-title">
-                A few things
-                <br />
-                I’ve helped <span className="lavender">bring to life.</span>
-              </h2>
+              <h2 id="work-title">Selected work</h2>
               <p>
-                A glimpse at the architecture, decisions, and problem solving
-                behind the finished product.
+                Projects that show the kind of frontend architecture,
+                integration work, production debugging, and technical leadership
+                I’ve handled.
               </p>
             </div>
             <div className="work-grid">
               <article className="work-card">
                 <div className="work-art gaming-art" aria-hidden="true">
-                  <span className="art-label">WORLD / WEB</span>
+                  <span className="art-label">MARKETING WEBSITE</span>
                   <div className="terrain-grid" />
                   <div className="art-scan" />
                   <svg viewBox="0 0 540 280" fill="none">
@@ -320,18 +314,20 @@ export default function Home() {
                       strokeWidth="2"
                     />
                   </svg>
-                  <span className="art-bottom">
-                    FRONTEND ARCHITECTURE · CONTENT AT SCALE
-                  </span>
                 </div>
                 <div className="work-card-copy">
-                  <p className="project-type">WEB EXPERIENCE / FRONTEND LEAD</p>
+                  <p className="project-type">
+                    <span className="detail-label">Role</span> Frontend
+                    architecture and delivery
+                  </p>
                   <h3>Tomb Raider website</h3>
                   <p>
-                    Led frontend architecture for a high-profile, content-driven
-                    site. Balanced SEO, performance, design fidelity, and motion
-                    with the realities of delivery.
+                    High-traffic marketing site built with Next.js, Contentful,
+                    Tailwind, and GSAP. I led frontend architecture, chose the
+                    rendering strategy, and helped adapt the experience to
+                    tighter budget constraints.
                   </p>
+                  <p className="detail-label">Stack</p>
                   <div className="tags">
                     <span>Next.js</span>
                     <span>Contentful</span>
@@ -340,21 +336,23 @@ export default function Home() {
                   </div>
                   <details>
                     <summary>
-                      Behind the build{" "}
+                      Key decisions &amp; result{" "}
                       <span>
                         <FiArrowUpRight aria-hidden="true" />
                       </span>
                     </summary>
                     <div className="case-detail">
+                      <h4>Key decisions</h4>
                       <p>
                         Used Next.js to serve fast, indexable content while
                         keeping account experiences personalized. When the
                         budget changed, I proposed GSAP and parallax to preserve
                         depth and motion with a simpler implementation.
                       </p>
+                      <h4>Result</h4>
                       <p>
-                        The project went on to influence our team’s adoption of
-                        Next.js and Tailwind for public websites.
+                        The project influenced our team’s adoption of Next.js
+                        and Tailwind for public websites.
                       </p>
                     </div>
                   </details>
@@ -362,7 +360,7 @@ export default function Home() {
               </article>
               <article className="work-card">
                 <div className="work-art data-art" aria-hidden="true">
-                  <span className="art-label">SIGNAL / SYSTEMS</span>
+                  <span className="art-label">OPERATIONS DASHBOARD</span>
                   <div className="art-scan" />
                   <div className="signal-bars" aria-hidden="true">
                     {[36, 60, 42, 83, 54, 95, 67, 76, 45, 90, 63, 80].map(
@@ -414,20 +412,20 @@ export default function Home() {
                       <i /> Useful insight
                     </span>
                   </div>
-                  <span className="art-bottom">
-                    UNCERTAIN DATA → DEFENSIBLE DECISIONS
-                  </span>
                 </div>
                 <div className="work-card-copy">
                   <p className="project-type">
-                    OPERATIONS PLATFORM / TECHNICAL CONTRIBUTOR
+                    <span className="detail-label">Role</span> Requirements and
+                    technical investigation
                   </p>
                   <h3>Parking analytics</h3>
                   <p>
-                    Helped turn unreliable occupancy snapshots into useful
-                    reporting. Worked through data freshness, device behavior,
-                    and what the source could actually support.
+                    Operations dashboard for occupancy, reporting, tenant
+                    management, and sensor health. I helped define requirements
+                    and worked through unreliable upstream parking data and
+                    device behavior.
                   </p>
+                  <p className="detail-label">Focus</p>
                   <div className="tags">
                     <span>Requirements</span>
                     <span>Data quality</span>
@@ -435,21 +433,24 @@ export default function Home() {
                   </div>
                   <details>
                     <summary>
-                      Behind the build{" "}
+                      Key decisions &amp; result{" "}
                       <span>
                         <FiArrowUpRight aria-hidden="true" />
                       </span>
                     </summary>
                     <div className="case-detail">
+                      <h4>Key decisions</h4>
                       <p>
-                        I raised reliability concerns early, investigated device
-                        behavior with the backend engineer, and reviewed the
-                        ingestion and reconciliation work.
+                        Raised reliability concerns early, investigated device
+                        behavior with the backend engineer, and reviewed
+                        ingestion and reconciliation work. Defined reporting
+                        limits based on what the upstream data could support.
                       </p>
+                      <h4>Result</h4>
                       <p>
-                        By identifying unhealthy devices and defining reporting
-                        limits, we helped the client make better decisions
-                        without promising precision the data couldn’t provide.
+                        Identified unhealthy devices and clarified the limits of
+                        the reporting so the client could make decisions without
+                        relying on unsupported precision.
                       </p>
                     </div>
                   </details>
@@ -457,7 +458,7 @@ export default function Home() {
               </article>
               <article className="work-card" aria-labelledby="speedyeats-title">
                 <div className="work-art security-art" aria-hidden="true">
-                  <span className="art-label">TRUST / INFRASTRUCTURE</span>
+                  <span className="art-label">AWS INCIDENT RESPONSE</span>
                   <div className="art-scan" />
                   <svg viewBox="0 0 540 280" fill="none">
                     <ellipse
@@ -500,57 +501,48 @@ export default function Home() {
                     <circle cx="151" cy="161" r="5" fill="#72e5bf" />
                     <circle cx="389" cy="105" r="4" fill="#c6a9ff" />
                   </svg>
-                  <span className="art-bottom">
-                    INVESTIGATE · HARDEN · RESTORE
-                  </span>
                 </div>
                 <div className="work-card-copy">
                   <p className="project-type">
-                    PRODUCTION INCIDENT / SHARED CONTRIBUTOR
+                    <span className="detail-label">Role</span> Incident
+                    investigation and remediation
                   </p>
-                  <h3 id="speedyeats-title">
-                    SpeedyEats: securing an inherited system
-                  </h3>
+                  <h3 id="speedyeats-title">SpeedyEats</h3>
                   <p>
-                    Helped investigate an AWS security incident that interrupted
-                    email delivery. Implemented much of the remediation, brought
-                    in our cybersecurity team for an independent audit, and
-                    worked with AWS Support to restore SES.
+                    Inherited AWS environment where an SES suspension exposed
+                    broader security problems. I helped investigate the incident
+                    and implemented most of the remediation across credentials,
+                    IAM, EC2 roles, SES permissions, and secrets management.
                   </p>
+                  <p className="detail-label">Stack</p>
                   <div className="tags">
                     <span>AWS IAM</span>
                     <span>EC2</span>
-                    <span>Secrets Manager</span>
                     <span>SES</span>
-                    <span>Incident response</span>
+                    <span>Secrets Manager</span>
                   </div>
                   <details>
                     <summary>
-                      Behind the recovery{" "}
+                      Key decisions &amp; result{" "}
                       <span>
                         <FiArrowUpRight aria-hidden="true" />
                       </span>
                     </summary>
                     <div className="case-detail">
+                      <h4>Key decisions</h4>
                       <p>
                         Traced the issue across AWS, Apache, Laravel, and PHP
-                        logs to exposed application configuration. I escalated
-                        to our cybersecurity team, who audited the system,
-                        validated proposed fixes, and identified additional
-                        remediation work.
-                      </p>
-                      <p>
-                        Rotated exposed credentials, replaced long-lived IAM
-                        keys on EC2 with scoped instance roles, restricted SES
-                        access to the workload, and moved secrets into AWS
+                        logs to exposed configuration. Brought in our
+                        cybersecurity team for an audit, rotated credentials,
+                        replaced long-lived IAM keys with scoped EC2 roles,
+                        restricted SES permissions, and moved secrets into AWS
                         Secrets Manager.
                       </p>
+                      <h4>Result</h4>
                       <p>
-                        Unauthorized sending stopped, and SES was reinstated
-                        after multiple rounds with AWS Support. The hardened
-                        configuration remains in place. The lesson: a working
-                        inherited deployment still needs an explicit review of
-                        secret handling, server exposure, and permissions.
+                        Unauthorized sending stopped. SES was reinstated after
+                        multiple rounds with AWS Support, and the hardened
+                        configuration remains in place.
                       </p>
                     </div>
                   </details>
@@ -558,7 +550,7 @@ export default function Home() {
               </article>
               <article className="work-card" aria-labelledby="centerline-title">
                 <div className="work-art standards-art" aria-hidden="true">
-                  <span className="art-label">CLARITY / COLLABORATION</span>
+                  <span className="art-label">FRONTEND CODE QUALITY</span>
                   <div className="art-scan" />
                   <svg viewBox="0 0 540 280" fill="none">
                     <rect
@@ -619,58 +611,49 @@ export default function Home() {
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <span className="art-bottom">
-                    CLEARER TYPES · SHARED STANDARDS
-                  </span>
                 </div>
                 <div className="work-card-copy">
                   <p className="project-type">
-                    ENGINEERING QUALITY / TECHNICAL GUIDANCE
+                    <span className="detail-label">Role</span> Frontend review
+                    and technical guidance
                   </p>
-                  <h3 id="centerline-title">
-                    CENTERLINE: stronger types, shared standards
-                  </h3>
+                  <h3 id="centerline-title">CENTERLINE</h3>
                   <p>
-                    Supported a team building document-heavy architectural
-                    project management software through frontend reviews,
-                    TypeScript guidance, and hands-on debugging. Helped turn
-                    recurring feedback into shared tooling and more maintainable
-                    code.
+                    Architectural project management software used to manage
+                    large document workflows. I reviewed frontend work across a
+                    larger team, gave TypeScript and debugging guidance, and
+                    helped standardize code quality with Prettier and ESLint.
                   </p>
+                  <p className="detail-label">Stack</p>
                   <div className="tags">
                     <span>React</span>
                     <span>TypeScript</span>
-                    <span>Code review</span>
-                    <span>ESLint</span>
+                    <span>Redux</span>
+                    <span>TanStack Query</span>
                     <span>Prettier</span>
+                    <span>ESLint</span>
                   </div>
                   <details>
                     <summary>
-                      Behind the build{" "}
+                      Key decisions &amp; result{" "}
                       <span>
                         <FiArrowUpRight aria-hidden="true" />
                       </span>
                     </summary>
                     <div className="case-detail">
+                      <h4>Key decisions</h4>
                       <p>
-                        Worked alongside roughly ten other developers and
-                        reviewed a large share of the frontend work. Instead of
-                        simply rejecting type assertions or broad types, I
-                        helped developers understand where uncertainty came from
-                        and model application states more precisely.
+                        Helped developers model application states more
+                        precisely instead of relying on type assertions and
+                        broad types. Walked teammates through systematic
+                        debugging and helped move repeated review conventions
+                        into Prettier and ESLint.
                       </p>
+                      <h4>Result</h4>
                       <p>
-                        Walked teammates through debugging with logs, browser
-                        tools, network inspection, and breakpoints. Reinforced
-                        practical patterns for React, Redux, TanStack Query,
-                        Context, and reusable hooks.
-                      </p>
-                      <p>
-                        Helped establish consistent formatting with Prettier,
-                        followed by ESLint conventions that reduced reliance on
-                        manual review. I saw fewer repeated typing and
-                        state-modeling issues in later PRs, leaving more room to
-                        discuss correctness, architecture, and maintainability.
+                        Saw fewer repeated typing and state-modeling issues in
+                        later PRs, allowing reviews to focus more on
+                        correctness, architecture, and maintainability.
                       </p>
                     </div>
                   </details>
@@ -682,11 +665,11 @@ export default function Home() {
                 <FiCpu aria-hidden="true" />
               </span>
               <div>
-                <h3>Also building with AI.</h3>
+                <h3>AI work</h3>
                 <p>
-                  Agent workflows, permission-scoped data access, streamed
-                  responses, and real-time voice. Practical features built with
-                  OpenAI APIs, LangChain, and LangGraph.
+                  Built AI assistant interfaces using OpenAI APIs,
+                  LangChain/LangGraph, SSE, realtime voice, permission-scoped
+                  database querying, and interactive charts.
                 </p>
               </div>
               <Spark className="ai-spark" />
