@@ -222,25 +222,19 @@ export default function Home() {
                 7<span>+</span>
                 <small> years</small>
               </strong>
-              <p>professional experience</p>
+              <p>experience</p>
             </div>
             <div>
               <strong>
                 35<span>+</span>
               </strong>
-              <p>web and mobile applications</p>
+              <p>web &amp; mobile apps</p>
             </div>
             <div>
               <strong>
                 40<span>+</span>
               </strong>
               <p>projects scoped</p>
-            </div>
-            <div>
-              <strong>
-                80<span>+</span>
-              </strong>
-              <p>technical interviews</p>
             </div>
           </div>
         </section>

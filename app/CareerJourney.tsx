@@ -34,6 +34,10 @@ export default function CareerJourney() {
           engineer and then principal frontend engineer as my scope expanded
           across architecture, delivery, code review, and technical leadership.
         </p>
+        <p>
+          I’ve also conducted 80+ technical interviews as part of the team’s
+          hiring process.
+        </p>
         <div
           className="career-blueprint"
           role="group"
