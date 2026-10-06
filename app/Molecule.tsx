@@ -18,7 +18,7 @@ export default function Molecule({
       role="group"
       aria-label="Choose a connected skill subject"
     >
-      <svg viewBox="0 0 440 440" fill="none">
+      <svg viewBox="0 10 440 346" fill="none">
         <g className="molecule-rings" aria-hidden="true">
           <ellipse
             cx="220"
@@ -119,7 +119,6 @@ export default function Molecule({
           <circle cx="154" cy="42" r="2" fill="#c6a9ff" />
         </g>
       </svg>
-      <p className="diagram-hint">TECHNICAL SKILLS</p>
     </div>
   );
 }

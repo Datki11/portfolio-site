@@ -1746,22 +1746,6 @@ h3 {
 .molecule-node:hover .node-halo {
   stroke-opacity: 0.8;
 }
-.diagram-hint {
-  text-align: center;
-  font: 8px monospace;
-  letter-spacing: 1px;
-  color: var(--lavender);
-  margin: 0;
-}
-.diagram-hint span {
-  display: block;
-  font:
-    11px "Roboto",
-    sans-serif;
-  letter-spacing: 0;
-  color: var(--muted);
-  margin-top: 10px;
-}
 .career-blueprint {
   max-width: 390px;
   width: 100%;
@@ -1874,12 +1858,6 @@ h3 {
 }
 .stack-tabs button {
   padding-inline: 7px;
-}
-.molecule-visual {
-  padding-bottom: 24px;
-}
-.molecule-visual svg {
-  margin-bottom: 16px;
 }
 .career-plane path,
 .career-plane circle,
@@ -2058,8 +2036,7 @@ h3 {
   font-size: 16px;
   line-height: 1.5;
 }
-.section-number,
-.diagram-hint {
+.section-number {
   font-size: 14px;
   letter-spacing: 0.5px;
 }
