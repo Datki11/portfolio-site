@@ -2,7 +2,6 @@ import Image from "next/image";
 import { FiArrowDown, FiArrowUpRight, FiCode, FiCpu } from "react-icons/fi";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import StackMap from "./StackMap";
-import MotionScene from "./MotionScene";
 import StarField from "./StarField";
 import CareerJourney from "./CareerJourney";
 
@@ -28,7 +27,7 @@ function Spark({ className = "" }: { className?: string }) {
 
 export default function Home() {
   return (
-    <MotionScene>
+    <div className="portfolio-site">
       <a className="skip-link" href="#main">
         Skip to content
       </a>
@@ -269,7 +268,6 @@ export default function Home() {
                 <div className="work-art gaming-art" aria-hidden="true">
                   <span className="art-label">MARKETING WEBSITE</span>
                   <div className="terrain-grid" />
-                  <div className="art-scan" />
                   <svg viewBox="0 0 540 280" fill="none">
                     <defs>
                       <linearGradient
@@ -298,20 +296,6 @@ export default function Home() {
                     <path
                       d="M55 60v14m-7-7h14M455 105v10m-5-5h10"
                       stroke="#d7c6ff"
-                    />
-                  </svg>
-                  <svg className="portal-fx" viewBox="0 0 540 280" fill="none">
-                    <path
-                      className="terrain-trace"
-                      d="m35 255 125-138 55 58 91-105 180 185"
-                      stroke="#d5ffed"
-                      strokeWidth="3"
-                    />
-                    <path
-                      className="shooting-star"
-                      d="m55 70 80-32"
-                      stroke="#d6c0ff"
-                      strokeWidth="2"
                     />
                   </svg>
                 </div>
@@ -361,7 +345,6 @@ export default function Home() {
               <article className="work-card">
                 <div className="work-art data-art" aria-hidden="true">
                   <span className="art-label">OPERATIONS DASHBOARD</span>
-                  <div className="art-scan" />
                   <div className="signal-bars" aria-hidden="true">
                     {[36, 60, 42, 83, 54, 95, 67, 76, 45, 90, 63, 80].map(
                       (height, index) => (
@@ -394,14 +377,6 @@ export default function Home() {
                       stroke="#72e5bf"
                       strokeOpacity=".3"
                       strokeDasharray="3 5"
-                    />
-                  </svg>
-                  <svg className="signal-fx" viewBox="0 0 540 280" fill="none">
-                    <path
-                      className="signal-trace"
-                      d="M45 192c35 0 42-30 70-30s40 19 63 19 41-52 75-52 28 10 61 10 47-37 77-37 70 18 104 0"
-                      stroke="#d1ffec"
-                      strokeWidth="5"
                     />
                   </svg>
                   <div className="signal-legend">
@@ -459,7 +434,6 @@ export default function Home() {
               <article className="work-card" aria-labelledby="speedyeats-title">
                 <div className="work-art security-art" aria-hidden="true">
                   <span className="art-label">AWS INCIDENT RESPONSE</span>
-                  <div className="art-scan" />
                   <svg viewBox="0 0 540 280" fill="none">
                     <ellipse
                       cx="270"
@@ -551,7 +525,6 @@ export default function Home() {
               <article className="work-card" aria-labelledby="centerline-title">
                 <div className="work-art standards-art" aria-hidden="true">
                   <span className="art-label">FRONTEND CODE QUALITY</span>
-                  <div className="art-scan" />
                   <svg viewBox="0 0 540 280" fill="none">
                     <rect
                       x="137"
@@ -726,12 +699,7 @@ export default function Home() {
                 daniel@danielatkinson.dev <FiArrowUpRight aria-hidden="true" />
               </a>
             </div>
-            <div
-              className="contact-planet"
-              tabIndex={0}
-              role="img"
-              aria-label="Interactive ringed planet. Move the pointer or use arrow keys to turn the surface and rings. Home resets the view."
-            >
+            <div className="contact-planet" aria-hidden="true">
               <div className="planet-core">
                 <div className="planet-surface" />
               </div>
@@ -774,6 +742,6 @@ export default function Home() {
           </a>
         </div>
       </footer>
-    </MotionScene>
+    </div>
   );
 }

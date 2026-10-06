@@ -226,7 +226,6 @@ h1 {
 }
 .button-mint:hover {
   background: #a0f4d8;
-  transform: translateY(-2px);
 }
 .button svg {
   font-size: 17px;
@@ -273,11 +272,7 @@ h1 {
     0 0 60px #8424ff30;
   transform: rotate(4deg);
   overflow: hidden;
-  transition: transform 0.4s;
   background: #221734;
-}
-.portrait-composition:hover .portrait-frame {
-  transform: rotate(1deg);
 }
 .headshot {
   object-fit: cover;
@@ -325,7 +320,6 @@ h1 {
   right: 11px;
   color: var(--mint);
   transform: rotate(9deg);
-  animation: sparkle-in 1.5s ease-out;
 }
 .orbit-label {
   position: absolute;
@@ -397,7 +391,6 @@ h1 {
 }
 .hero-socials a:hover {
   color: var(--mint);
-  transform: translateY(-2px);
 }
 .section-heading {
   display: flex;
@@ -979,16 +972,6 @@ h3 {
 .skip-link:focus {
   top: 16px;
 }
-@keyframes sparkle-in {
-  from {
-    opacity: 0;
-    transform: rotate(-30deg) scale(0.7);
-  }
-  to {
-    opacity: 1;
-    transform: rotate(9deg) scale(1);
-  }
-}
 @media (max-width: 1000px) {
   .wrap {
     width: calc(100% - 64px);
@@ -1453,17 +1436,14 @@ h3 {
     animation: none !important;
     transition: none !important;
   }
-  .portrait-composition:hover .portrait-frame {
-    transform: rotate(4deg);
-  }
 }
 
 .header-shell {
   background: linear-gradient(115deg, #28173e, #20132f);
 }
 
-/* Depth is progressive enhancement: every surface works without JavaScript. */
-.motion-site {
+/* Keep decorative artwork inside the page bounds. */
+.portfolio-site {
   overflow: clip;
 }
 .sky-section {
@@ -1543,9 +1523,6 @@ h3 {
   filter: drop-shadow(0 0 12px #72e5bf22);
   transform-origin: center;
 }
-.hero-spark {
-  animation: none;
-}
 .work-grid {
   perspective: 1400px;
 }
@@ -1606,56 +1583,6 @@ h3 {
 .contact-planet {
   filter: drop-shadow(18px 28px 25px #12092388);
 }
-[data-motion="active"] .portrait-frame,
-[data-motion="active"] .button-mint {
-  transition-property: background, color, border-color;
-}
-[data-motion="active"] .portrait-composition:hover .portrait-frame {
-  transform: rotate(4deg);
-}
-[data-motion="active"] .button-mint:hover {
-  transform: none;
-}
-.motion-toggle {
-  position: fixed;
-  z-index: 40;
-  bottom: 18px;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  background: #241a35ed;
-  backdrop-filter: blur(12px);
-  border: 1px solid #c6a9ff4a;
-  border-radius: 30px;
-  padding: 10px 14px;
-  font:
-    10px "Roboto",
-    sans-serif;
-  color: #d9c9ef;
-  box-shadow: 0 5px 20px #08050e55;
-  cursor: pointer;
-}
-.motion-toggle svg {
-  color: var(--mint);
-}
-.motion-toggle:hover {
-  border-color: var(--mint);
-}
-@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
-  .motion-toggle {
-    display: none;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .portrait-composition:hover .portrait-frame {
-    transform: rotate(4deg);
-  }
-  .button-mint:hover,
-  .hero-socials a:hover {
-    transform: none;
-  }
-}
 .hero h1 {
   text-shadow:
     1px 2px 0 #432565,
@@ -1668,19 +1595,6 @@ h3 {
     color 0.3s,
     background 0.3s,
     border-color 0.3s;
-}
-[data-motion="active"] .tags span:hover {
-  transform: translateY(-4px) scale(1.08);
-}
-[data-motion-disabled] .portrait-composition:hover .portrait-frame {
-  transform: rotate(4deg);
-}
-[data-motion-disabled] .button-mint:hover,
-[data-motion-disabled] .hero-socials a:hover {
-  transform: none;
-}
-[data-motion-disabled] .portrait-frame {
-  transition: none;
 }
 
 .portrait-orbits {
@@ -1797,10 +1711,6 @@ h3 {
 .contact-planet {
   border-radius: 40px;
 }
-.contact-planet:focus-visible {
-  outline: 1px solid var(--mint);
-  outline-offset: 10px;
-}
 @media (max-width: 700px) {
   .orbit-label-top {
     left: 0;
@@ -1847,8 +1757,7 @@ h3 {
   stroke-opacity: 1;
   stroke-dasharray: 3 4;
 }
-.molecule-node:hover .node-halo,
-.molecule-node[data-hovered] .node-halo {
+.molecule-node:hover .node-halo {
   stroke-opacity: 0.8;
 }
 .diagram-hint {
@@ -1926,35 +1835,6 @@ h3 {
   background: #85669f;
   box-shadow: 0 0 0 1px #85669f;
 }
-.portal-fx,
-.signal-fx {
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s;
-  filter: drop-shadow(0 0 6px #72e5bf99);
-}
-.art-scan {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 45%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #72e5bf12,
-    #c6a9ff33,
-    transparent
-  );
-  opacity: 0;
-  pointer-events: none;
-  mix-blend-mode: screen;
-}
-.work-art[data-playing] .portal-fx,
-.work-art[data-playing] .signal-fx,
-.work-art[data-playing] .art-scan {
-  opacity: 1;
-}
 .signal-bars {
   display: flex;
   align-items: flex-end;
@@ -1967,10 +1847,6 @@ h3 {
   flex: 1;
   background: linear-gradient(#72e5bf77, #72e5bf00);
   border-top: 2px solid #72e5bf99;
-}
-
-.work-art[data-playing] {
-  box-shadow: inset 0 0 70px #8424ff25;
 }
 .planet-core::after {
   background: radial-gradient(
@@ -1985,9 +1861,6 @@ h3 {
 .planet-surface {
   height: 125%;
   top: -12.5%;
-}
-.contact-planet {
-  cursor: crosshair;
 }
 .depth-star:nth-child(4n) {
   filter: drop-shadow(0 0 4px #c6a9ff);
@@ -2087,4 +1960,62 @@ h3 {
   font-weight: 500;
   color: var(--ink);
   margin: 0 0 8px;
+}
+
+/* One entrance sequence; the final layout and all hit targets stay stationary. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy > h1,
+  .hero-statement,
+  .hero-description,
+  .hero-actions {
+    animation: hero-copy-enter 650ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+  .hero-statement {
+    animation-delay: 100ms;
+  }
+  .hero-description {
+    animation-delay: 180ms;
+  }
+  .hero-description + .hero-description {
+    animation-delay: 260ms;
+  }
+  .hero-actions {
+    animation-delay: 340ms;
+  }
+  .portrait-frame {
+    --arrival-angle: 4deg;
+    animation: hero-card-enter 850ms cubic-bezier(0.22, 1, 0.36, 1) 180ms
+      backwards;
+  }
+  .orbit-label {
+    animation: hero-card-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+  .orbit-label-top {
+    --arrival-angle: -7deg;
+    animation-delay: 360ms;
+  }
+  .orbit-label-bottom {
+    --arrival-angle: -5deg;
+    animation-delay: 480ms;
+  }
+}
+@keyframes hero-copy-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes hero-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px) rotate(calc(var(--arrival-angle) - 5deg));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--arrival-angle));
+  }
 }

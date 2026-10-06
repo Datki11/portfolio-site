@@ -129,7 +129,6 @@ export default function CareerJourney() {
                 type="button"
                 onClick={() => setActive(index)}
                 onFocus={() => setActive(index)}
-                onPointerEnter={() => setActive(index)}
                 aria-pressed={active === index}
               >
                 {role.title}
