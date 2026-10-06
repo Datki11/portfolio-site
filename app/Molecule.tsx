@@ -111,15 +111,6 @@ export default function Molecule({
             >
               {s.short}
             </text>
-            <text
-              y="61"
-              textAnchor="middle"
-              fill="#c6b4dc"
-              fontFamily="monospace"
-              fontSize="22"
-            >
-              {s.label}
-            </text>
           </g>
         ))}
         <g className="molecule-sparks" stroke="#bfa3df" aria-hidden="true">
