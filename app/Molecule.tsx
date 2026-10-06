@@ -1,6 +1,6 @@
 const subjects = [
-  { label: "Interfaces", short: "UI", x: 80, y: 145 },
-  { label: "Systems", short: "API", x: 360, y: 145 },
+  { label: "Frontend", short: "UI", x: 80, y: 145 },
+  { label: "Backend", short: "API", x: 360, y: 145 },
   { label: "AI workflows", short: "AI", x: 220, y: 55 },
   { label: "Cloud", short: "AWS", x: 115, y: 310 },
   { label: "Delivery", short: "CI", x: 325, y: 310 },
@@ -132,7 +132,7 @@ export default function Molecule({
         </g>
       </svg>
       <p className="diagram-hint">
-        CONNECTED IDEAS. DIFFERENT PERSPECTIVES.
+        TECHNICAL SKILLS
         <span>Select a node to explore</span>
       </p>
     </div>

@@ -193,23 +193,26 @@ export default function Home() {
           </div>
           <div className="about-intro">
             <h2 id="about-title">
-              Frontend engineering.
+              Frontend-focused
               <br />
-              <span className="lavender">Project delivery.</span>
+              <span className="lavender">software engineer</span>
             </h2>
             <div>
               <p>
-                At Vigilus, I’ve worked on client applications since 2019,
-                including more than 20 React web applications and 15 React
-                Native applications. My work spans architecture, implementation,
-                API integration, testing, and release.
+                I’ve worked across web, mobile, desktop, cloud infrastructure,
+                and AI-enabled products since 2019.
               </p>
               <p>
-                I’ve led technical scoping for more than 40 web and mobile
-                applications, translating requirements into architecture,
-                integration plans, and delivery estimates. I also review
-                frontend code, provide technical guidance to other engineers,
-                and work directly with clients on requirements and tradeoffs.
+                My strongest area is frontend engineering, especially React and
+                TypeScript, but my work regularly extends into APIs,
+                authentication, AWS, application architecture, technical
+                scoping, and delivery.
+              </p>
+              <p>
+                I’ve worked on both small teams and larger projects with
+                multiple developers, and I’m comfortable owning features,
+                reviewing code, helping define technical direction, and working
+                directly with clients and stakeholders.
               </p>
             </div>
           </div>
@@ -218,20 +221,27 @@ export default function Home() {
             <div>
               <strong>
                 7<span>+</span>
+                <small> years</small>
               </strong>
-              <p>years building software</p>
+              <p>professional experience</p>
             </div>
             <div>
               <strong>
                 35<span>+</span>
               </strong>
-              <p>web & mobile apps built</p>
+              <p>web and mobile applications</p>
             </div>
             <div>
               <strong>
                 40<span>+</span>
               </strong>
-              <p>applications scoped</p>
+              <p>projects scoped</p>
+            </div>
+            <div>
+              <strong>
+                80<span>+</span>
+              </strong>
+              <p>technical interviews</p>
             </div>
           </div>
         </section>

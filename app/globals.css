@@ -516,7 +516,7 @@ h3 {
 }
 .impact-strip {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid var(--line);
   margin-top: 40px;
   padding-top: 30px;
@@ -1232,7 +1232,7 @@ h3 {
     font-size: 9px;
   }
   .impact-strip {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
     margin-top: 26px;
     padding-top: 25px;
@@ -1240,7 +1240,8 @@ h3 {
   .impact-strip > div {
     padding-left: 12px;
   }
-  .impact-strip > div:first-child {
+  .impact-strip > div:nth-child(odd) {
+    border-left: 0;
     padding-left: 0;
   }
   .impact-strip strong {
@@ -2057,4 +2058,9 @@ h3 {
 .standards-art {
   background:
     radial-gradient(ellipse at 50% 45%, #36535755, transparent 75%), #1b202c;
+}
+
+.impact-strip strong small {
+  font-size: 18px;
+  letter-spacing: 0;
 }
