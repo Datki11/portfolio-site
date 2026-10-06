@@ -2019,3 +2019,12 @@ h3 {
     transform: translateY(0) rotate(var(--arrival-angle));
   }
 }
+
+@media (max-width: 700px) {
+  .impact-strip strong {
+    white-space: nowrap;
+  }
+  .impact-strip strong small {
+    font-size: 14px;
+  }
+}
