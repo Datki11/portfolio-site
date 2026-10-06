@@ -574,6 +574,12 @@ h3 {
 .work-card:hover {
   border-color: #b594df70;
 }
+/* Match collapsed pairs, but never stretch a card to its expanded neighbor. */
+.work-card:has(details[open]),
+.work-card:nth-child(odd):has(details[open]) + .work-card,
+.work-card:nth-child(odd):has(+ .work-card details[open]) {
+  align-self: start;
+}
 .work-art {
   flex-shrink: 0;
   position: relative;
