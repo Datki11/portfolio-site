@@ -382,7 +382,7 @@ export default function Home() {
                     <span className="detail-label">Role</span> Requirements and
                     technical investigation
                   </p>
-                  <h3>Parking analytics</h3>
+                  <h3>Parking Guidance Systems</h3>
                   <p>
                     Operations dashboard for occupancy, reporting, tenant
                     management, and sensor health. I helped define requirements
