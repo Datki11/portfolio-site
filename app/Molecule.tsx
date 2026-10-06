@@ -65,7 +65,7 @@ export default function Molecule({
             textAnchor="middle"
             fill="#e7d9fc"
             fontFamily="monospace"
-            fontSize="25"
+            fontSize="20"
           >
             &lt;/&gt;
           </text>
@@ -107,7 +107,7 @@ export default function Molecule({
               textAnchor="middle"
               fill={active === i ? "#142b23" : "#dbcaef"}
               fontFamily="monospace"
-              fontSize="22"
+              fontSize="16"
             >
               {s.short}
             </text>
