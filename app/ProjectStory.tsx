@@ -1,3 +1,5 @@
+import { FiArrowUpRight } from "react-icons/fi";
+
 const stories = [
   {
     id: "tomb-raider-title",
@@ -107,20 +109,28 @@ export default function ProjectStory({ index }: { index: number }) {
     <div className="work-card-copy project-story">
       <h3 id={story.id}>{story.title}</h3>
       <p>{story.summary}</p>
-      <div className="case-detail">
-        <h4>Key decisions</h4>
-        <ul>
-          {story.decisions.map((decision) => (
-            <li key={decision}>{decision}</li>
-          ))}
-        </ul>
-        <h4>Result</h4>
-        <ul>
-          {story.results.map((result) => (
-            <li key={result}>{result}</li>
-          ))}
-        </ul>
-      </div>
+      <details>
+        <summary>
+          Key decisions &amp; result
+          <span>
+            <FiArrowUpRight aria-hidden="true" />
+          </span>
+        </summary>
+        <div className="case-detail">
+          <h4>Key decisions</h4>
+          <ul>
+            {story.decisions.map((decision) => (
+              <li key={decision}>{decision}</li>
+            ))}
+          </ul>
+          <h4>Result</h4>
+          <ul>
+            {story.results.map((result) => (
+              <li key={result}>{result}</li>
+            ))}
+          </ul>
+        </div>
+      </details>
       <div className="tags" aria-label="Tags">
         {story.tags.map((tag) => (
           <span key={tag}>{tag}</span>
