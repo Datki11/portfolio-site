@@ -7,12 +7,12 @@ export default function StarField() {
         return (
           <span
             key={index}
-            className={`depth-star ${prominent ? "depth-star-cross" : ""}`}
+            className="depth-star"
             style={{
               left: `${(index * 37 + 5) % 100}%`,
               top: `${(index * 23 + 7) % 97}%`,
-              width: prominent ? 12 : 2 + (index % 3),
-              height: prominent ? 12 : 2 + (index % 3),
+              width: prominent ? 5 : 2 + (index % 3),
+              height: prominent ? 5 : 2 + (index % 3),
               opacity: prominent ? 0.75 : 0.22 + (index % 4) * 0.13,
             }}
           />

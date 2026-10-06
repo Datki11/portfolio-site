@@ -9,7 +9,7 @@ import CareerJourney from "./CareerJourney";
 const headshotSrc: string | null = "/images/headshot.webp";
 const resumeHref = "/Daniel_Atkinson_Resume_2026_Senior_Frontend_Engineer.pdf";
 
-function Spark({ className = "" }: { className?: string }) {
+function Constellation({ className = "" }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -18,9 +18,19 @@ function Spark({ className = "" }: { className?: string }) {
       aria-hidden="true"
     >
       <path
-        d="M20 0C20 14 26 20 40 20C26 20 20 26 20 40C20 26 14 20 0 20C14 20 20 14 20 0Z"
-        fill="currentColor"
+        d="M5 29 14 12 26 23 35 6M26 23l6 12"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeOpacity=".65"
       />
+      <g fill="currentColor">
+        <circle cx="5" cy="29" r="2" />
+        <circle cx="14" cy="12" r="2.8" />
+        <circle cx="26" cy="23" r="2" />
+        <circle cx="35" cy="6" r="2.5" />
+        <circle cx="32" cy="35" r="1.6" />
+      </g>
+      <circle cx="14" cy="12" r="5.5" stroke="currentColor" strokeOpacity=".25" />
     </svg>
   );
 }
@@ -114,7 +124,7 @@ export default function Home() {
                 <circle cx="502" cy="160" r="5" fill="#c6a9ff" />
                 <circle cx="225" cy="18" r="3" fill="#72e5bf" />
               </svg>
-              <Spark className="hero-spark" />
+              <Constellation className="hero-spark" />
               <span className="orbit-label orbit-label-top">
                 <FiCode aria-hidden="true" /> React + TypeScript
               </span>
@@ -188,7 +198,7 @@ export default function Home() {
             <p className="eyebrow">
               <span className="section-number">01</span> ABOUT
             </p>
-            <Spark className="section-spark" />
+            <Constellation className="section-spark" />
           </div>
           <div className="about-intro">
             <h2 id="about-title">
@@ -634,7 +644,7 @@ export default function Home() {
                   database querying, and interactive charts.
                 </p>
               </div>
-              <Spark className="ai-spark" />
+              <Constellation className="ai-spark" />
             </div>
           </div>
         </section>
@@ -676,7 +686,7 @@ export default function Home() {
                 <span className="section-number">04</span> CONTACT
               </p>
               <h2 id="contact-title">
-                Get in <span>touch</span> <Spark className="contact-spark" />
+                Get in <span>touch</span> <Constellation className="contact-spark" />
               </h2>
               <p>
                 I’m open to senior frontend, full-stack, and frontend-heavy software
@@ -700,7 +710,7 @@ export default function Home() {
                   <i />
                 </div>
               </div>
-              <Spark className="planet-spark" />
+              <Constellation className="planet-spark" />
             </div>
           </div>
         </section>

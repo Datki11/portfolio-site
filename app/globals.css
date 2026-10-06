@@ -1482,19 +1482,7 @@ h3 {
   background: var(--mint);
   box-shadow: 0 0 13px #72e5bf88;
 }
-.depth-star-cross {
-  border-radius: 0;
-  clip-path: polygon(
-    50% 0,
-    61% 38%,
-    100% 50%,
-    61% 62%,
-    50% 100%,
-    39% 62%,
-    0 50%,
-    39% 38%
-  );
-}
+
 .portrait-composition {
   perspective: 1000px;
   transform-style: flat;
