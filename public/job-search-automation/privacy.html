@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Privacy — Job Search Automation</title>
+<style>body{font:18px/1.65 system-ui,sans-serif;max-width:740px;margin:64px auto;padding:0 24px;color:#172033;background:#f8fafc}h1,h2{line-height:1.25}a{color:#1749ad}</style>
+<main>
+<p><a href="index.html">Job Search Automation</a></p>
+<h1>Privacy policy</h1>
+<p>Effective October 26, 2026. Job Search Automation is a personal tool operated by Daniel Atkinson for his own job search.</p>
+<h2>Google data access and purpose</h2>
+<p>The desktop application uses Google's official OAuth process and the Gmail read-only scope (gmail.readonly). This scope permits reading the authorized mailbox; the application limits its retrieval queries to job-alert messages. It reads message bodies temporarily to extract job links and available job titles. It does not send, delete or modify mail, change labels, or mark messages read.</p>
+<h2>Local storage and protection</h2>
+<p>OAuth refresh tokens are stored in the operating system credential store (macOS Keychain on the owner's Mac). Downloaded OAuth client configuration stays in a private local folder. The application stores email message IDs, the mailbox identifier, message receipt times, source identifiers, extracted job information, processing metrics and sanitized errors in a local SQLite database. Full email bodies and recipient-specific tracking parameters are not retained in the database or logs. Data remains until the owner deletes it.</p>
+<h2>Sharing and use limitations</h2>
+<p>The current Gmail ingestion component does not send email bodies or Gmail credentials to Notion, OpenAI, advertisers, or other third parties. It communicates with Google to authorize and retrieve messages. This information website does not receive mailbox data or OAuth tokens. Google user data is not sold, used for advertising, or used to develop, improve or train generalized AI or machine-learning models.</p>
+<p>Job Search Automation's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. If future features introduce additional data uses, this policy and the application's notices will be updated before those features are enabled.</p>
+<h2>Control, revocation and deletion</h2>
+<p>The owner can revoke access through <a href="https://myaccount.google.com/connections">Google Account connections</a>, remove the app's entry from the operating system credential store, and delete the local SQLite database, reports and downloaded client configuration. Revoking access stops future authorized mailbox retrieval; deleting local files removes retained local data. The owner controls any backups separately.</p>
+<h2>Contact</h2>
+<p>Questions or deletion requests: <a href="mailto:daniel@danielatkinson.dev">daniel@danielatkinson.dev</a>.</p>
+</main>
+</html>
